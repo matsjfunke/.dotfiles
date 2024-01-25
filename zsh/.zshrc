@@ -1,21 +1,38 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+
+# Prompt
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git*' formats '%b $(git_prompt_info)'
+precmd() {
+    vcs_info
+}
+
+git_prompt_info() {
+    if [[ -n $(git rev-parse --is-inside-work-tree 2>/dev/null) ]]; then
+        local git_status="$(git status --porcelain 2>/dev/null)"
+        local branch_name="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+
+        if [[ -n "$git_status" ]]; then
+            echo -n "%B%F{019}git : ( %F{009}${branch_name} %F{019}) %F{011}X%f "
+        else
+            echo -n "%B%F{019}git : ( %F{009}${branch_name} %F{019}) "
+        fi
+    fi
+}
+
+setopt PROMPT_SUBST
+PS1='%B%F{010}%K{238}=> %F{014}%~ %(!.#.$)  $(git_prompt_info)%f%k '
+
+
 
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
-# theme
-source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 
-# plugins
+# Plugins
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -27,10 +44,7 @@ google_search() {
   open "https://www.google.com/search?q=${query// /+}"
 }
 
-# aliases 
+# Aliases 
 alias home="cd ~"
 alias c="code"
 alias dc="docker-compose"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
