@@ -24,11 +24,10 @@ git_prompt_info() {
 }
 
 setopt PROMPT_SUBST
-# PS1='%F{010} %F{014}%~ %(!.#.$)  $(git_prompt_info)%f%k '
-PS1='%F{010}\u1F579  %F{014 }%~ %(!.#.$)  $(git_prompt_info)%f%k '
+PS1='%F{010}   %F{014}   %~ %(!.#.)  $(git_prompt_info)%f%k '
 
 
-#             
+#               
 
 # History in cache directory:
 HISTSIZE=10000
@@ -50,6 +49,4 @@ google_search() {
 
 # Aliases 
 alias home="cd ~"
-alias c="code"
 alias dc="docker-compose"
-
