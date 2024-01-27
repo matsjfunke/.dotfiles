@@ -50,3 +50,6 @@ google_search() {
 # Aliases 
 alias home="cd ~"
 alias dc="docker-compose"
+alias python="python3"
+alias rm='rm -i'
+alias mv='mv -i'
