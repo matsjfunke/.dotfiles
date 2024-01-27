@@ -1,4 +1,4 @@
-![prompt](.dotfiles/img/prompt.png)
+![prompt](img/prompt.png)
 
 ## Steps to bootstrap a new Mac
 
