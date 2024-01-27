@@ -1,4 +1,4 @@
-Watch the video https://youtu.be/r_MpUP6aKiQ "Dotfiles in 100 Seconds on YouTube"
+![prompt](.dotfiles/img/prompt.png)
 
 ## Steps to bootstrap a new Mac
 
