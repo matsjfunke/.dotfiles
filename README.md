@@ -35,3 +35,8 @@ then follow homebrew instructions.
 ```zsh
 brew bundle --file ~/.dotfiles/Brewfile
 ```
+
+to create a Brewfile run:
+```zsh
+brew list > Brewfile
+```
