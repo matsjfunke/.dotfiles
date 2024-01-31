@@ -2,6 +2,23 @@ export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+
+# Runtime 
+function preexec() {
+  timer=$(($(gdate +%s%0N)/1000000))
+}
+
+function precmd() {
+  if [ $timer ]; then
+    now=$(($(gdate +%s%0N)/1000000))
+    elapsed=$(($now-$timer))
+
+    export RPROMPT="%F{cyan}${elapsed}ms %{$reset_color%}"
+    unset timer
+  fi
+}
+
+
 # Prompt
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
@@ -24,10 +41,11 @@ git_prompt_info() {
 }
 
 setopt PROMPT_SUBST
-PS1='%F{010}   %F{014}   %~ %(!.#.)  $(git_prompt_info)%f%k '
+PS1='%F{010}   %F{014}   %~ %(!.#.)  $(git_prompt_info)%f%k'
 
 
 #               
+
 
 # History in cache directory:
 HISTSIZE=10000
@@ -39,17 +57,18 @@ HISTFILE=~/.cache/zsh/history
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Google search from the terminal
-alias search="google_search"
 
+# Google search from the terminal
 google_search() {
   query="$*"
   open "https://www.google.com/search?q=${query// /+}"
 }
 
+
 # Aliases 
-alias home="cd ~"
+alias search="google_search"
 alias dc="docker-compose"
 alias python="python3"
-alias rm='rm -i'
-alias mv='mv -i'
+alias rm="rm -i"
+alias mv="mv -i"
+alias tree="tree -C"
