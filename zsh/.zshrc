@@ -3,22 +3,6 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 
-# Runtime 
-function preexec() {
-  timer=$(($(gdate +%s%0N)/1000000))
-}
-
-function precmd() {
-  if [ $timer ]; then
-    now=$(($(gdate +%s%0N)/1000000))
-    elapsed=$(($now-$timer))
-
-    export RPROMPT="%F{cyan}${elapsed}ms %{$reset_color%}"
-    unset timer
-  fi
-}
-
-
 # Prompt
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
@@ -42,6 +26,22 @@ git_prompt_info() {
 
 setopt PROMPT_SUBST
 PS1='%F{010}   %F{014}   %~ %(!.#.)  $(git_prompt_info)%f%k'
+
+
+# Runtime 
+function preexec() {
+  timer=$(($(gdate +%s%0N)/1000000))
+}
+
+function precmd() {
+  if [ $timer ]; then
+    now=$(($(gdate +%s%0N)/1000000))
+    elapsed=$(($now-$timer))
+
+    export RPROMPT="%F{cyan}${elapsed}ms %{$reset_color%}"
+    unset timer
+  fi
+}
 
 
 #               
