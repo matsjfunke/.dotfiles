@@ -10,8 +10,8 @@ git clone https://github.com/matsjfunke/dotfiles.git ~/.dotfiles
 
 2. Create symlinks in the Home directory to the real files in the repo.
 ```zsh
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
 ```
 
 3. Source the files
