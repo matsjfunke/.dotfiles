@@ -41,10 +41,7 @@ function precmd() {
     export RPROMPT="%F{cyan}${elapsed}ms %{$reset_color%}"
     unset timer
   fi
-}
-
-
-#               
+} 
 
 
 # History in cache directory:
@@ -72,3 +69,6 @@ alias python="python3"
 alias rm="rm -i"
 alias mv="mv -i"
 alias tree="tree -C"
+alias ta="tmux attach-session -t "
+alias tn="tmux new-session -s "
+alias tk="tmux kill-session -t "
