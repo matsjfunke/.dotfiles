@@ -44,5 +44,8 @@ brew list > Brewfile
 
 
 ## Font
-Use a Nerdfont https://www.nerdfonts.com/#home for working emojis
-my favorite font D2CodingLigature Nerd Font 
+Use a Nerdfont https://www.nerdfonts.com/#home for working emojis.
+
+Check cheatsheet for emojis: https://www.nerdfonts.com/cheat-sheet
+
+My favorite font: D2CodingLigature Nerd Font https://www.programmingfonts.org/#d2coding
