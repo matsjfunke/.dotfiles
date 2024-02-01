@@ -14,6 +14,7 @@ ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
 ```
 
+
 3. Source the files
 
 example for the .zshrc
@@ -40,3 +41,8 @@ to create a Brewfile run:
 ```zsh
 brew list > Brewfile
 ```
+
+## Font
+
+## Use a Nerdfont https://www.nerdfonts.com/#home for working emojis
+my favorite font D2CodingLigature Nerd Font 
