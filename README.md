@@ -42,7 +42,7 @@ to create a Brewfile run:
 brew list > Brewfile
 ```
 
-## Font
 
-## Use a Nerdfont https://www.nerdfonts.com/#home for working emojis
+## Font
+Use a Nerdfont https://www.nerdfonts.com/#home for working emojis
 my favorite font D2CodingLigature Nerd Font 
