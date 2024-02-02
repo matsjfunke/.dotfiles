@@ -1,0 +1,25 @@
+Normal Mode:
+
+Vertical:
+j   k   =   down    up
+{   }   =   up      down to next empty line
+
+Horizontal:
+h   l   =   left        right
+I       =   insert start current line
+A       =   insert end current line (Append)
+w       =   jumps to next (word)
+b       =   jumps (back) to previous word
+G       =   bottom of file
+
+Search:
+/<query>
+    |- hit enter to search the query
+    '- Press n to jump to the next occurrence
+
+Edit:
+a       =   (append) to current character
+
+    w/o entering insertmode:
+    x       =   delete current character -> w/o insert mode
+    r<char> =   (replace) the current character with <char> entered 
