@@ -3,14 +3,17 @@ Normal Mode:
 Vertical:
 j   k   =   down    up
 {   }   =   up      down to next empty line
+o       =   insertmode in the nextline
 
 Horizontal:
 h   l   =   left        right
 I       =   insert start current line
 A       =   insert end current line (Append)
+u       =   undo changes
 w       =   jumps to next (word)
 b       =   jumps (back) to previous word
 G       =   bottom of file
+gg      =   top of file
 
 Search:
 /<query>
@@ -19,7 +22,21 @@ Search:
 
 Edit:
 a       =   (append) to current character
+x       =   delete current character -> w/o insert mode
+r<char> =   (replace) the current character with <char> entered 
+dd      =   delete line
+dw      =   delete word
+c       =   change => delete plus insert mode
+u       =   undo changes
 
-    w/o entering insertmode:
-    x       =   delete current character -> w/o insert mode
-    r<char> =   (replace) the current character with <char> entered 
+Visual Mode:
+v       =   enter visual mode
+y       =   yank / copie selected text
+p       =   put / paste copied text
+u       =   undo paste
+
+Command Mode:
+:       =   enter mode
+q       =   quit
+w       =   write / save
+
