@@ -61,7 +61,6 @@ google_search() {
   open "https://www.google.com/search?q=${query// /+}"
 }
 
-
 # Aliases 
 alias search="google_search"
 alias dc="docker-compose"
@@ -75,3 +74,4 @@ alias tk="tmux kill-session -t "
 alias cp="cp -r"
 alias scp="scp -r"
 alias vim='/opt/homebrew/bin/vim'
+# alias ls="colorls" # requires sudo gem install colorls 
