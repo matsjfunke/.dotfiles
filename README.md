@@ -12,6 +12,7 @@ git clone https://github.com/matsjfunke/dotfiles.git ~/.dotfiles
 ```zsh
 ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/nvim ~/.config/nvim
 ```
 
 
