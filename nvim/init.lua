@@ -18,13 +18,17 @@ require("lazy").setup({
 
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
-	{ 'joshdick/onedark.vim', priority = 1000 }
+	{ 'joshdick/onedark.vim', priority = 1000 },
+
+	{ "nvim-neo-tree/neo-tree.nvim", branch = "v3.x", dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim",}}
 }, 
 {})
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+
+vim.keymap.set('n', '<C-s>', ':Neotree toggle<CR>')		
 
 local config = require("nvim-treesitter.configs")
 config.setup({
