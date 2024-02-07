@@ -28,21 +28,7 @@ set laststatus=2
 set incsearch
 set nohlsearch
 
-" Syntax and filetype colorscheme
-syntax enable
-colorscheme habamax
-
-" Automatically detect file type and apply syntax highlighting
-filetype on
-filetype indent on
-filetype plugin on
-
-" Define file types for specific file extensions
-for ext in ['py', 'Dockerfile', 'docker-compose', 'html', 'css', 'json', 'csv', 'md', 'yaml', 'yml', 'sql']
-  execute 'autocmd BufNewFile,BufRead *.' . ext . ' set filetype=' . ext
-endfor
-
-"disable arrow keys
+" Disable arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
