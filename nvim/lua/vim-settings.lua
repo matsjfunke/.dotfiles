@@ -1,5 +1,6 @@
 -- Line numbers
-vim.o.number = true 
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- Map leader to <Space>
 vim.g.mapleader = " "
