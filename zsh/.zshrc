@@ -74,4 +74,5 @@ alias tk="tmux kill-session -t "
 alias cp="cp -r"
 alias scp="scp -r"
 alias vim='/opt/homebrew/bin/vim'
+alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 # alias ls="colorls" # requires sudo gem install colorls 
