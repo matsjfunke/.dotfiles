@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  
+  # APPNAME:
+    build: ./app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app/:/usr/src/app/
+    ports:
+      - 8009:8000
+    env_file:
+      - ./app/.env.dev

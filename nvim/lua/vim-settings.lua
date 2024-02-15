@@ -21,5 +21,14 @@ vim.opt.clipboard = "unnamedplus"
 -- scroll cursor middle
 vim.opt.scrolloff = 999
 
--- colors
+-- Colors
 vim.opt.termguicolors = true
+
+-- Auto-insert template based on filetype
+vim.cmd([[
+    autocmd BufNewFile *.py :0r ~/.dotfiles/nvim/lua/templates/python.tpl | $d
+    autocmd BufNewFile *.html :0r ~/.dotfiles/nvim/lua/templates/html.tpl | $d
+    autocmd BufNewFile .gitignore :0r ~/.dotfiles/nvim/lua/templates/gitignore.tpl | $d
+    autocmd BufNewFile Dockerfile :0r ~/.dotfiles/nvim/lua/templates/Dockerfile.tpl | $d
+    autocmd BufNewFile docker-compose.yml :0r ~/.dotfiles/nvim/lua/templates/docker-compose.tpl | $d
+]])
