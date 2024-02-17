@@ -32,3 +32,6 @@ vim.cmd([[
     autocmd BufNewFile Dockerfile :0r ~/.dotfiles/nvim/lua/templates/Dockerfile.tpl | $d
     autocmd BufNewFile docker-compose.yml :0r ~/.dotfiles/nvim/lua/templates/docker-compose.tpl | $d
 ]])
+
+-- Split right
+vim.o.splitright = true
