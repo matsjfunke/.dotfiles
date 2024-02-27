@@ -1,4 +1,5 @@
 return {
+    --nvim-treesitter syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
