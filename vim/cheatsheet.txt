@@ -40,3 +40,14 @@ Command Mode:
 q       =   quit
 w       =   write / save
 
+multiline comment:
+^C v    -->     visual block mode
+select lines 
+I       -->     insertmode
+type comment 
+esc
+
+to delete multiline comment:
+^C V    -->     visual block mode
+select lines 
+x       -->     deletes visual block

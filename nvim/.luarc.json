@@ -1,6 +1,9 @@
 {
     "diagnostics.globals": [
         "vim",
-        "opts"
+        "opts",
+        "feedkey",
+        "has_words_before",
+        "luasnip"
     ]
 }
