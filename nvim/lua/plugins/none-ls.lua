@@ -11,7 +11,8 @@ return {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.isort,
                 null_ls.builtins.diagnostics.eslint_d,
-                null_ls.builtins.diagnostics.flake8.with({extra_args = {"--max-line-length","150"}}),
+                null_ls.builtins.diagnostics.flake8.with({extra_args = {"--max-line-length","180"}}),
+                null_ls.builtins.formatting.flake8,
 			},
 		})
 		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})

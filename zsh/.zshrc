@@ -45,7 +45,7 @@ function precmd() {
 
 
 # History in cache directory:
-HISTSIZE=10000
+HISTSIZE=100000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
@@ -73,6 +73,6 @@ alias tn="tmux new-session -s "
 alias tk="tmux kill-session -t "
 alias cp="cp -r"
 alias scp="scp -r"
-alias vim='/opt/homebrew/bin/vim'
+alias vim='nvim'
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 # alias ls="colorls" # requires sudo gem install colorls 
