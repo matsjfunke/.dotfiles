@@ -76,3 +76,4 @@ alias scp="scp -r"
 alias vim='nvim'
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 # alias ls="colorls" # requires sudo gem install colorls 
+alias tree="tree -I env"
