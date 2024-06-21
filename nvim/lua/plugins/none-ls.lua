@@ -13,8 +13,9 @@ return {
                 null_ls.builtins.diagnostics.eslint_d,
                 null_ls.builtins.diagnostics.flake8.with({extra_args = {"--max-line-length","180"}}),
                 null_ls.builtins.formatting.flake8,
+                null_ls.builtins.formatting.prettier,
 			},
 		})
-		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+		vim.keymap.set("n", "<leader>sf", vim.lsp.buf.format, {})
 	end,
 }
