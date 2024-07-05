@@ -11,7 +11,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "pyright", "cssls", "html", "tsserver" },
+                ensure_installed = { "lua_ls", "pyright", "cssls", "html", "tsserver", "rust_analyzer" },
             })
         end,
     },
@@ -25,11 +25,15 @@ return {
             lspconfig.cssls.setup({})
             lspconfig.html.setup({})
             lspconfig.tsserver.setup({})
+            lspconfig.rust_analyzer.setup({})
 
             -- Set up key mappings for LSP commands
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+            -- show information about the symbol under the cursor (documentation / type information)
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+            -- go to definition
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+            -- trigger code actions fixing code issues / refactoring code
         end,
     },
 }

@@ -54,6 +54,8 @@ HISTFILE=~/.cache/zsh/history
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Add Rust environment setup
+. "$HOME/.cargo/env"
 
 # Google search from the terminal
 google_search() {
