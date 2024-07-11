@@ -14,3 +14,8 @@
 	ui = auto
 [pull]
 	rebase = true
+[alias]
+	staash = stash --all
+	lg = log --oneline --graph --decorate --all
+	uncommit = reset --soft HEAD~1
+	amend = commit --amend
