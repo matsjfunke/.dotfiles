@@ -6,3 +6,11 @@
 [user]
 	name = Mats Julius Funke
 	email = 125814808+matsjfunke@users.noreply.github.com
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[pull]
+	rebase = true
