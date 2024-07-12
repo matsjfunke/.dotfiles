@@ -1,66 +1,149 @@
 ![prompt](img/prompt.png)
-# Features 
+
+# Features
+
 **Zsh**
-   - sets up the executable search path & locale settings for the shell environment
-   - custom prompt
-   - measures and displays command execution time in milliseconds
-   - loads plugins syntax highlighting and autosuggestions
-   - aliases and functions for convenience
+
+- sets up the executable search path & local settings for the shell environment
+- custom prompt
+- measures and displays command execution time in milliseconds
+- loads plugins syntax highlighting and autosuggestions
+- aliases and functions for convenience
 
 **Neovim**
-   - vim-settings.lua: enhanced navigation, key bindings, indentation, clipboard integration, cursor control, color support, filetype-specific templates, and window splitting
-   - lazy-plugin-manager.lua : plugin for managing plugins
-   - treesiter.lua: syntax highlighting
-   - kanagwa.lua: colortheme
-   - neo-tree.lua: toggle filetree for nvim
-   - lua-line.lua: pretty status line
-   - telescope.lua: file fuzzyfinder
-   - gitsigns.lua: toggling adds color indcating type of git diff and toggle for blame annotations
-   - lsp-config.lua: uses mason.nvim to mange LSPs, mason-lspconfig ensures LSPs are installed, nvim-lspconfig to integrate / manage LSPs, setting up specific LSPs and defining key mappings for hover, go to definition and code actions
-   - none-ls.lua: wraps linters/formatters to make them seem like an normal lsp to nvim-lspconfig
-     
-# Steps to using the dotfiles on mac
-1. Install Homebrew
-```zsh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-then follow homebrew instructions.
 
-2. then install the software listed in the Brewfile.
-```zsh
-brew bundle --file ~/.dotfiles/Brewfile
-```
-to create a Brewfile run: `brew list > Brewfile`
+- vim-settings.lua: enhanced navigation, key bindings, indentation, clipboard integration, cursor control, color support, filetype-specific templates, and window splitting
+- lazy-plugin-manager.lua : plugin for managing plugins
+- treesiter.lua: syntax highlighting
+- kanagawa.lua: colortheme
+- neo-tree.lua: toggle filetree for nvim
+- lua-line.lua: pretty status line
+- telescope.lua: file fuzzyfinder
+- gitsigns.lua: toggling adds color indcating type of git diff and toggle for blame annotations
+- lsp-config.lua: uses mason.nvim to mange LSPs, mason-lspconfig ensures LSPs are installed, nvim-lspconfig to integrate / manage LSPs, setting up specific LSPs and defining key mappings for hover, go to definition and code actions
+- none-ls.lua: wraps linters/formatters to make them seem like an normal lsp to nvim-lspconfig
 
-3. Clone this repo into new hidden directory.
-```zsh
-git clone https://github.com/matsjfunke/dotfiles.git ~/.dotfiles
-```
+**Git Config**
 
-3. Create symlinks in the Home directory to the real files in the repo.
-```zsh
-ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/nvim ~/.config/nvim
-```
+- Git LFS: Ensures large file handling is managed.
+- User Details / SSH signing: Sets your name, email, and SSH signing key.
+- Pull Behavior: Always rebases instead of merging when pulling.
+- Aliases: Defines shortcuts for common commands, including stash, log, reset, and commit amendments.
+- Sets the default branch name to main.
+- Color UI: Enables automatic color in the UI.
+- Neovim as the default editor.
 
-4. Source the files
-example for the .zshrc
-```zsh
-cd ~
-source .zshrc
-```
+# Steps to Using Dotfiles on Mac
 
-5. Font
-Use a Nerdfont https://www.nerdfonts.com/#home for working emojis.
-Check cheatsheet for emojis: https://www.nerdfonts.com/cheat-sheet
-My favorite font: D2CodingLigature Nerd Font https://www.programmingfonts.org/#d2coding
+1. **Install Homebrew**
+
+   Install Homebrew using the following command and follow the instructions prompted by Homebrew.
+
+   ```zsh
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+
+2. **Install Software from Brewfile**
+
+   Install the software listed in your Brewfile.
+
+   ```zsh
+   brew bundle --file ~/.dotfiles/Brewfile
+   ```
+
+   To create a Brewfile from your current setup, run:
+
+   ```zsh
+   brew list > ~/.dotfiles/Brewfile
+   ```
+
+3. **Clone Dotfiles Repository**
+
+   Clone your dotfiles repository into a hidden directory (`~/.dotfiles`).
+
+   ```zsh
+   git clone https://github.com/matsjfunke/dotfiles.git ~/.dotfiles
+   ```
+
+4. **Create Symbolic Links**
+
+   Create symbolic links from the repository to your home directory for configuration files.
+
+   ```zsh
+   ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
+   ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
+   ln -s ~/.dotfiles/nvim ~/.config/nvim
+   ```
+
+5. **Source Configuration Files**
+
+   Source your `.zshrc` to apply changes without restarting your shell.
+
+   ```zsh
+   source ~/.zshrc
+   ```
+
+6. **Install a Nerd Font**
+
+   Choose and install a Nerd Font (e.g., D2CodingLigature Nerd Font) for emoji support.
+
+   - Nerd Font homepage: [Nerdfonts](https://www.nerdfonts.com/#home)
+   - Emoji cheat sheet: [Nerdfonts Cheat Sheet](https://www.nerdfonts.com/cheat-sheet)
+
+7. **Set Up Git and SSH Keys**
+
+   - Set your name & email
+
+     ```bash
+     git config --global user.name "Your Name"
+     git config --global user.email "your_email@example.com"
+     ```
+
+   - Generate SSH key pairs (one for read/write operations and one for signing):
+
+     ```bash
+     ssh-keygen -t ed25519 -C "your_email@example.com"
+     ```
+
+     Follow the prompts to generate the keys and optionally set a passphrase.
+
+   - Start the SSH agent:
+
+     ```bash
+     eval "$(ssh-agent -s)"
+     ```
+
+   - Add your SSH private keys to the agent:
+
+     ```bash
+     ssh-add path/to/.ssh/private_signing_key
+     ssh-add path/to/.ssh/private_read_write_key
+     ```
+
+   - Update your `.gitconfig` file to specify the SSH key for signing:
+
+     ```ini
+     [user]
+         name = Your Name
+         email = your_email@example.com
+         signingkey = <path-to-your-private-key>
+     ```
+
+   - Add your public keys to your GitHub profile
+   - Test your SSH connection:
+
+     ```bash
+     ssh -T git@github.com
+     ```
 
 # Use zsh / nvim Individually
+
 Zsh
+
 - clone into root `git clone https://github.com/matsjfunke/dotfiles/blob/main/zsh/.zshrc ~`
 - source file `source .zshrc`
-  
+
 Nvim
+
 - clone into .config on mac `git clone https://github.com/matsjfunke/dotfiles/blob/main/nvim ~/.config`
 - open in termial `nvim`
