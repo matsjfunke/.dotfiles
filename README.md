@@ -73,6 +73,7 @@
    ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
    ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
    ln -s ~/.dotfiles/nvim ~/.config/nvim
+   ln -s ~/.dotfiles/htop/htoprc ~/.config/htop/htoprc
    ```
 
 5. **Source Configuration Files**
@@ -136,7 +137,7 @@
      ssh -T git@github.com
      ```
 
-# Use zsh / nvim Individually
+# Use configs Individually
 
 Zsh
 
@@ -147,3 +148,8 @@ Nvim
 
 - clone into .config on mac `git clone https://github.com/matsjfunke/dotfiles/blob/main/nvim ~/.config`
 - open in termial `nvim`
+
+htop
+
+- clone into .config/htop `git clone https://github.com/matsjfunke/dotfiles/blob/main/htop/htoprc ~/.config`
+- or copy and sym-link `ln -s ~/.dotfiles/htop/htoprc ~/.config/htop/htoprc`
