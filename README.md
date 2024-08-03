@@ -48,13 +48,13 @@
    Install the software listed in your Brewfile.
 
    ```zsh
-   brew bundle --file ~/.dotfiles/Brewfile
+   brew bundle --file=~/.dotfiles/homebrew/Brewfile
    ```
 
    To create a Brewfile from your current setup, run:
 
    ```zsh
-   brew list > ~/.dotfiles/Brewfile
+   brew bundle dump --file=~/.dotfiles/homebrew/Brewfile
    ```
 
 3. **Clone Dotfiles Repository**
