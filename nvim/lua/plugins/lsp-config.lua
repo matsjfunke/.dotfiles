@@ -28,12 +28,12 @@ return {
             lspconfig.rust_analyzer.setup({})
 
             -- Set up key mappings for LSP commands
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             -- show information about the symbol under the cursor (documentation / type information)
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             -- go to definition
-            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
             -- trigger code actions fixing code issues / refactoring code
+            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
         end,
     },
 }
