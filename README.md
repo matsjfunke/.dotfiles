@@ -12,15 +12,22 @@
 
 **Neovim**
 
-- vim-settings.lua: enhanced navigation, key bindings, indentation, clipboard integration, cursor control, color support, filetype-specific templates, and window splitting
-- lazy-plugin-manager.lua : plugin for managing plugins
-- treesiter.lua: syntax highlighting
-- kanagawa.lua: colortheme
-- neo-tree.lua: toggle filetree for nvim
-- lua-line.lua: pretty status line
+- lazy-plugin-manager.lu 
+    - plugin manager 
+    - type `:Lazy` to view GUI to mange plugin installation / updates
+- lsp-config.lua: 
+    - uses mason.nvim to mange LSPs, 
+    - mason-lspconfig ensures LSPs are installed, manages LSPs, defines key mappings for hover, go to definition and code actions
+    - type `:Mason` to view GUI
+- vim-settings.lua:
+    - enhanced navigation, key bindings, indentation, clipboard integration, cursor control, color support, filetype-specific templates, and window splitting
 - telescope.lua: file fuzzyfinder
+- harpoon.lua : keybindings to mark files, display menu of marked files & quickly jump to them
+- treesiter.lua: syntax highlighting
+- neo-tree.lua: toggle filetree for nvim
+- kanagawa.lua: colortheme
+- lua-line.lua: pretty status line
 - gitsigns.lua: toggling adds color indcating type of git diff and toggle for blame annotations
-- lsp-config.lua: uses mason.nvim to mange LSPs, mason-lspconfig ensures LSPs are installed, nvim-lspconfig to integrate / manage LSPs, setting up specific LSPs and defining key mappings for hover, go to definition and code actions
 - none-ls.lua: wraps linters/formatters to make them seem like an normal lsp to nvim-lspconfig
 
 **Git Config**
