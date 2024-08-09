@@ -40,6 +40,11 @@
 - Color UI: Enables automatic color in the UI.
 - Neovim as the default editor.
 
+**htop**
+- nicer UI
+
+**Wezterm**
+
 # Steps to Using Dotfiles on Mac
 
 1. **Install Homebrew**
@@ -81,6 +86,7 @@
    ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
    ln -s ~/.dotfiles/nvim ~/.config/nvim
    ln -s ~/.dotfiles/htop/htoprc ~/.config/htop/htoprc
+   ln -s ~/.dotfiles/wezterm/.wezterm.lua ~/.wezterm.lua
    ```
 
 5. **Source Configuration Files**
