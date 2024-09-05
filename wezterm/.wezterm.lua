@@ -11,6 +11,14 @@ config.font_size = 18
 -- Key mapping section
 config.keys = {
   {key="n", mods="OPT", action=wezterm.action{SendString="~"}},
+  {key="l", mods="OPT", action=wezterm.action{SendString="@"}},
+  {key="p", mods="OPT", action=wezterm.action{SendString="["}},
+  {key="ü", mods="OPT", action=wezterm.action{SendString="]"}},
+  {key="ö", mods="OPT", action=wezterm.action{SendString="{"}},
+  {key="ä", mods="OPT", action=wezterm.action{SendString="}"}},
+  {key="ä", mods="OPT", action=wezterm.action{SendString="}"}},
+  {key="7", mods="OPT", action=wezterm.action{SendString="|"}},
+  {key="+", mods="OPT", action=wezterm.action{SendString="\\"}},
 }
 
 -- Mouse and cursor

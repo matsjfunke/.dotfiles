@@ -39,6 +39,7 @@
 - Sets the default branch name to main.
 - Color UI: Enables automatic color in the UI.
 - Neovim as the default editor.
+- Git diff syntax-highlighting and line numbers (req: `brew install delta`)
 
 **htop**
 - nicer UI
