@@ -78,7 +78,7 @@ alias scp="scp -r"
 alias vim='nvim'
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 # alias ls="colorls" # requires sudo gem install colorls 
-alias tree="tree -I 'env|venv|node_modules'"
+alias tree="tree -I 'env|venv|node_modules|__pycache__'"
 export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
