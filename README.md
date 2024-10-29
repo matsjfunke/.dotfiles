@@ -24,6 +24,7 @@
 - telescope.lua: file fuzzyfinder
 - harpoon.lua : keybindings to mark files, display menu of marked files & quickly jump to them
 - treesiter.lua: syntax highlighting
+- nvim-ts-autotag: closes html / jsx tags automatically
 - neo-tree.lua: toggle filetree for nvim
 - kanagawa.lua: colortheme
 - lua-line.lua: pretty status line
@@ -45,6 +46,8 @@
 - nicer UI
 
 **Wezterm**
+- keymaps
+- font / UI setup
 
 # Steps to Using Dotfiles on Mac
 
