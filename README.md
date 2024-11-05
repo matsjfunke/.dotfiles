@@ -1,26 +1,25 @@
-![prompt](img/prompt.png)
-
 # Features
 
-**Zsh**
+## Zsh
 
+![prompt](img/prompt.png)
 - sets up the executable search path & local settings for the shell environment
 - custom prompt
 - measures and displays command execution time in milliseconds
 - loads plugins syntax highlighting and autosuggestions
 - aliases and functions for convenience
 
-**Neovim**
+## Neovim
 
-- lazy-plugin-manager.lu 
-    - plugin manager 
-    - type `:Lazy` to view GUI to mange plugin installation / updates
-- lsp-config.lua: 
-    - uses mason.nvim to mange LSPs, 
-    - mason-lspconfig ensures LSPs are installed, manages LSPs, defines key mappings for hover, go to definition and code actions
-    - type `:Mason` to view GUI
+- lazy-plugin-manager.lua
+  - plugin manager
+  - type `:Lazy` to view GUI to mange plugin installation / updates
+- lsp-config.lua:
+  - uses mason.nvim to mange LSPs,
+  - mason-lspconfig ensures LSPs are installed, manages LSPs, defines key mappings for hover, go to definition and code actions
+  - type `:Mason` to view GUI
 - vim-settings.lua:
-    - enhanced navigation, key bindings, indentation, clipboard integration, cursor control, color support, filetype-specific templates, and window splitting
+  - enhanced navigation, key bindings, indentation, clipboard integration, cursor control, color support, filetype-specific templates, and window splitting
 - telescope.lua: file fuzzyfinder
 - harpoon.lua : keybindings to mark files, display menu of marked files & quickly jump to them
 - treesiter.lua: syntax highlighting
@@ -31,7 +30,7 @@
 - gitsigns.lua: toggling adds color indcating type of git diff and toggle for blame annotations
 - none-ls.lua: wraps linters/formatters to make them seem like an normal lsp to nvim-lspconfig
 
-**Git Config**
+## Git Config
 
 - Git LFS: Ensures large file handling is managed.
 - User Details / SSH signing: Sets your name, email, and SSH signing key.
@@ -42,11 +41,23 @@
 - Neovim as the default editor.
 - Git diff syntax-highlighting and line numbers (req: `brew install delta`)
 
-**htop**
+**commands**:
+git diff: Syntax-highlighted diff.
+git lg: compact, colorfull log view.
+git lfg: Add, commit, push.
+git staash: Stash all changes.
+git uncommit: Undo last commit.
+git amend: Amend last commit.
+git scm: Signed commit with message.
+
+## htop
+
 - nicer UI
 
-**Wezterm**
+## Wezterm
+
 - keymaps
+  'CTRL + v' activates copy mode
 - font / UI setup
 
 # Steps to Using Dotfiles on Mac
