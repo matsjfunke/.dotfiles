@@ -12,6 +12,7 @@ return {
 			local config = require("nvim-treesitter.configs")
 			config.setup({
 				ensure_installed = {
+					"latex",
 					"c",
 					"cpp",
 					"lua",

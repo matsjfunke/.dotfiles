@@ -29,6 +29,7 @@
 - lua-line.lua: pretty status line
 - gitsigns.lua: toggling adds color indcating type of git diff and toggle for blame annotations
 - none-ls.lua: wraps linters/formatters to make them seem like an normal lsp to nvim-lspconfig
+- markview-nvim.lua: markdown previewer (renders markdown in a readable way)
 
 ## Git Config
 
