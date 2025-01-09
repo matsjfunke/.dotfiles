@@ -76,6 +76,8 @@ alias tk="tmux kill-session -t "
 alias cp="cp -r"
 alias scp="scp -r"
 alias vim='nvim'
+alias python="python3.12"
+alias pip="pip3.12"
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 # alias ls="colorls" # requires sudo gem install colorls 
 alias tree="tree -I 'env|venv|node_modules|__pycache__'"
@@ -84,3 +86,11 @@ export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# pnpm
+export PNPM_HOME="/Users/matsfunke/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

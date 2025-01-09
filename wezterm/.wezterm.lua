@@ -23,7 +23,7 @@ config.keys = {
 	-- Map 'Command + v' to activate copy mode
 	{
 		key = "v",
-		mods = "CTRL",
+		mods = "OPT",
 		action = wezterm.action.ActivateCopyMode,
 	},
 }
