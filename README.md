@@ -11,25 +11,44 @@
 
 ## Neovim
 
-- lazy-plugin-manager.lua
-  - plugin manager
-  - type `:Lazy` to view GUI to mange plugin installation / updates
-- lsp-config.lua:
-  - uses mason.nvim to mange LSPs,
-  - mason-lspconfig ensures LSPs are installed, manages LSPs, defines key mappings for hover, go to definition and code actions
-  - type `:Mason` to view GUI
-- vim-settings.lua:
-  - enhanced navigation, key bindings, indentation, clipboard integration, cursor control, color support, filetype-specific templates, and window splitting
-- telescope.lua: file fuzzyfinder
-- harpoon.lua : keybindings to mark files, display menu of marked files & quickly jump to them
-- treesiter.lua: syntax highlighting
-- nvim-ts-autotag: closes html / jsx tags automatically
-- neo-tree.lua: toggle filetree for nvim
-- kanagawa.lua: colortheme
-- lua-line.lua: pretty status line
-- gitsigns.lua: toggling adds color indcating type of git diff and toggle for blame annotations
-- none-ls.lua: wraps linters/formatters to make them seem like an normal lsp to nvim-lspconfig
-- markview-nvim.lua: markdown previewer (renders markdown in a readable way)
+**Plugin Manager**
+- **lazy-plugin-manager.lua**: 
+  - Plugin manager
+  - Use `:Lazy` to access a GUI for managing plugin installations and updates.
+
+**Language Server and Code Quality**
+- **lsp-config.lua**:
+  - Manages Language Server Protocols (LSPs) using `mason.nvim`.
+  - `mason-lspconfig` ensures LSPs are installed, manages LSPs, and defines key mappings.
+  - Use `:Mason` to access the GUI.
+- **none-ls.lua**:
+  - Wraps linters/formatters to function as a normal LSP to `nvim-lspconfig`.
+- **nvim-ts-autotag**:
+  - Automatically closes HTML/JSX tags.
+
+**Navigation and File Operations**
+- **vim-settings.lua**:
+  - Enhances navigation, key bindings, indentation, clipboard integration, cursor control, color support, filetype-specific templates, and window splitting.
+- **telescope.lua**:
+  - Provides a file fuzzy finder.
+- **harpoon.lua**:
+  - Offers keybindings to mark files, display a menu of marked files, and quickly jump to them.
+- **neo-tree.lua**:
+  - Toggles a file tree for Neovim.
+- **gitsigns.lua**:
+  - Adds color indicators for types of git diffs and toggles for blame annotations.
+
+**Aesthetics and UI Enhancements**
+- **kanagawa.lua**:
+  - Provides a color theme.
+- **lualine.lua**:
+  - Offers a visually appealing status line.
+- **snacks-dashboard.lua**:
+  - Provides a visually appealing dashboard.
+- **treesitter.lua**:
+  - Provides syntax highlighting.
+- **markview-nvim.lua**:
+  - A markdown previewer that renders markdown in a readable format.
 
 ## Git Config
 
@@ -45,11 +64,11 @@
 **commands**:
 git diff: Syntax-highlighted diff.
 git lg: compact, colorfull log view.
-git lfg: Add, commit, push.
+git lfg "": Add, commit, push.
 git staash: Stash all changes.
 git uncommit: Undo last commit.
 git amend: Amend last commit.
-git scm: Signed commit with message.
+git scm "": Signed commit with message.
 
 ## htop
 
