@@ -6,9 +6,9 @@ vim.opt.relativenumber = true
 vim.g.mapleader = " "
 
 -- Remap escape
-vim.api.nvim_set_keymap('i', 'kj', '<Esc>', {noremap = true})
-vim.api.nvim_set_keymap('v', 'kj', '<Esc>', {noremap = true})
-vim.api.nvim_set_keymap('c', 'kj', '<Esc>', {noremap = true})
+vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true })
+vim.api.nvim_set_keymap('v', 'kj', '<Esc>', { noremap = true })
+vim.api.nvim_set_keymap('c', 'kj', '<Esc>', { noremap = true })
 
 -- Tab
 vim.opt.expandtab = true
@@ -35,3 +35,4 @@ vim.cmd([[
 
 -- Split right
 vim.o.splitright = true
+vim.api.nvim_set_keymap('n', '<leader>ss', ':vsplit<CR>', { noremap = true, silent = true })
