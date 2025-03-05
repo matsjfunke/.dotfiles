@@ -19,9 +19,10 @@
 	staash = stash --all
 	lg = log --oneline --graph --decorate --all
 	uncommit = reset --soft HEAD~1
-    amend = commit --amend -S
+  amend = commit --amend -S
 	scm = commit -S -m
 	lfg = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
+	co = checkout
 [gpg]
 	format = ssh
 [core]
