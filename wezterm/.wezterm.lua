@@ -5,27 +5,27 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- Font
-config.font = wezterm.font("D2CodingLigature Nerd Font")
-config.font_size = 18
+config.font = wezterm.font("D2CodingLigature Nerd Font Mono")
+config.font_size = 16
 
 -- Key mapping section
 config.keys = {
-	{ key = "n", mods = "OPT", action = wezterm.action({ SendString = "~" }) },
-	{ key = "l", mods = "OPT", action = wezterm.action({ SendString = "@" }) },
-	{ key = "p", mods = "OPT", action = wezterm.action({ SendString = "[" }) },
-	{ key = "ü", mods = "OPT", action = wezterm.action({ SendString = "]" }) },
-	{ key = "ö", mods = "OPT", action = wezterm.action({ SendString = "{" }) },
-	{ key = "ä", mods = "OPT", action = wezterm.action({ SendString = "}" }) },
-	{ key = "ä", mods = "OPT", action = wezterm.action({ SendString = "}" }) },
-	{ key = "7", mods = "OPT", action = wezterm.action({ SendString = "|" }) },
-	{ key = "+", mods = "OPT", action = wezterm.action({ SendString = "\\" }) },
+  { key = "n", mods = "OPT", action = wezterm.action({ SendString = "~" }) },
+  { key = "l", mods = "OPT", action = wezterm.action({ SendString = "@" }) },
+  { key = "p", mods = "OPT", action = wezterm.action({ SendString = "[" }) },
+  { key = "ü", mods = "OPT", action = wezterm.action({ SendString = "]" }) },
+  { key = "ö", mods = "OPT", action = wezterm.action({ SendString = "{" }) },
+  { key = "ä", mods = "OPT", action = wezterm.action({ SendString = "}" }) },
+  { key = "ä", mods = "OPT", action = wezterm.action({ SendString = "}" }) },
+  { key = "7", mods = "OPT", action = wezterm.action({ SendString = "|" }) },
+  { key = "+", mods = "OPT", action = wezterm.action({ SendString = "\\" }) },
 
-	-- Map 'Command + v' to activate copy mode
-	{
-		key = "v",
-		mods = "OPT",
-		action = wezterm.action.ActivateCopyMode,
-	},
+  -- Map 'Command + v' to activate copy mode
+  {
+    key = "v",
+    mods = "OPT",
+    action = wezterm.action.ActivateCopyMode,
+  },
 }
 
 -- Mouse and cursor

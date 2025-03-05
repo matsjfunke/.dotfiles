@@ -2,6 +2,8 @@ export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+eval "$(ssh-agent -s)"
+ssh-add --apple-use-keychain ~/.ssh/github
 
 # Prompt
 autoload -Uz vcs_info

@@ -16,7 +16,7 @@ return {
           "pyright",
           "cssls",
           "html",
-          "tsserver",
+          "ts_ls",
           "rust_analyzer",
           "eslint",
           "tailwindcss",
@@ -33,7 +33,7 @@ return {
       lspconfig.pyright.setup({})
       lspconfig.cssls.setup({})
       lspconfig.html.setup({})
-      lspconfig.tsserver.setup({})
+      lspconfig.ts_ls.setup({})
       lspconfig.rust_analyzer.setup({})
 
       -- Set up key mappings for LSP commands
