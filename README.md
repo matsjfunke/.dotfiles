@@ -1,7 +1,7 @@
 # Features
 
 ## Zsh
-
+av s 
 ![prompt](img/prompt.png)
 - sets up the executable search path & local settings for the shell environment
 - custom prompt
