@@ -1,0 +1,75 @@
+{
+  "window.commandCenter": 1,
+  "window.newWindowProfile": "Vim",
+  "workbench.sideBar.location": "left",
+  "window.customTitleBarVisibility": "never",
+  "workbench.activityBar.location": "hidden",
+  "editor.formatOnSave": true,
+  "editor.suggest.insertMode": "replace",
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "editor.linkedEditing": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": 0.5,
+  "launch": {},
+  "[json]": {},
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": false,
+  "update.showReleaseNotes": false,
+  "zenMode.hideLineNumbers": false,
+  "editor.lineNumbers": "relative",
+  "workbench.list.openMode": "singleClick",
+  "explorer.openEditors.visible": 0,
+  "workbench.list.automaticKeyboardNavigation": true,
+  "vim.leader": "<Space>",
+  "vim.hlsearch": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // NAVIGATION
+    // switch b/w buffers
+    { "before": ["<S-h>"], "commands": [":bprevious"] },
+    { "before": ["<S-l>"], "commands": [":bnext"] },
+
+    // split vertically
+    { "before": ["leader", "v"], "commands": [":vsplit"] },
+
+    // NICE TO HAVE
+    { "before": ["leader", "w"], "commands": [":w!"] },
+    { "before": ["leader", "q"], "commands": [":q!"] },
+    { "before": ["leader", "x"], "commands": [":x!"] },
+    { "before": ["leader", "p"], "commands": ["editor.action.formatDocument"] }, // Format file with <Space>p
+    {
+      "before": ["leader", "f", "f"],
+      "commands": ["workbench.action.quickOpen"] // Find filename with <Space>ff
+    },
+    {
+      "before": ["leader", "f", "g"],
+      "commands": ["workbench.action.findInFiles"] // Find in file with <Space>fg
+    },
+    {
+      "before": ["s", "d"],
+      "commands": ["editor.action.showDefinitionPreviewHover"] // Show definition preview with sd
+    },
+    {
+      "before": ["g", "d"],
+      "commands": ["editor.action.revealDefinition"] // Go to definition with gd
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    // Stay in visual mode while indenting
+    { "before": ["<"], "commands": ["editor.action.outdentLines"] },
+    { "before": [">"], "commands": ["editor.action.indentLines"] },
+    // Move selected lines while staying in visual mode
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] }
+  ],
+  // Formatting
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
