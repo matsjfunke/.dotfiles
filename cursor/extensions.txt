@@ -1,0 +1,10 @@
+bradlc.vscode-tailwindcss
+dbaeumer.vscode-eslint
+eamodio.gitlens
+esbenp.prettier-vscode
+hashicorp.terraform
+lokalise.i18n-ally
+prisma.prisma
+usernamehw.errorlens
+vscodevim.vim
+yoavbls.pretty-ts-errors

@@ -3,6 +3,7 @@
 ## Zsh
 
 ![prompt](img/prompt.png)
+
 - sets up the executable search path & local settings for the shell environment
 - custom prompt
 - measures and displays command execution time in milliseconds
@@ -12,11 +13,13 @@
 ## Neovim
 
 **Plugin Manager**
-- **lazy-plugin-manager.lua**: 
+
+- **lazy-plugin-manager.lua**:
   - Plugin manager
   - Use `:Lazy` to access a GUI for managing plugin installations and updates.
 
 **Language Server and Code Quality**
+
 - **lsp-config.lua**:
   - Manages Language Server Protocols (LSPs) using `mason.nvim`.
   - `mason-lspconfig` ensures LSPs are installed, manages LSPs, and defines key mappings.
@@ -27,6 +30,7 @@
   - Automatically closes HTML/JSX tags.
 
 **Navigation and File Operations**
+
 - **vim-settings.lua**:
   - Enhances navigation, key bindings, indentation, clipboard integration, cursor control, color support, filetype-specific templates, and window splitting.
 - **telescope.lua**:
@@ -39,6 +43,7 @@
   - Adds color indicators for types of git diffs and toggles for blame annotations.
 
 **Aesthetics and UI Enhancements**
+
 - **kanagawa.lua**:
   - Provides a color theme.
 - **lualine.lua**:
@@ -201,3 +206,98 @@ htop
 
 - clone into .config/htop `git clone https://github.com/matsjfunke/dotfiles/blob/main/htop/htoprc ~/.config`
 - or copy and sym-link `ln -s ~/.dotfiles/htop/htoprc ~/.config/htop/htoprc`
+
+## Cursor
+
+- VS Code setup with Vim bindings and productivity-focused keybindings
+
+### Extensions
+
+The following VS Code extensions are used:
+
+- `bradlc.vscode-tailwindcss`: Tailwind CSS IntelliSense
+- `dbaeumer.vscode-eslint`: ESLint integration
+- `eamodio.gitlens`: Git integration with blame annotations and history
+- `esbenp.prettier-vscode`: Prettier code formatter
+- `hashicorp.terraform`: Terraform support
+- `lokalise.i18n-ally`: i18n management
+- `prisma.prisma`: Prisma database toolkit support
+- `usernamehw.errorlens`: Inline error highlighting
+- `vscodevim.vim`: Vim emulation
+- `yoavbls.pretty-ts-errors`: Improved TypeScript error messages
+
+### Key Bindings
+
+File Tree Navigation:
+
+- `Ctrl+s`: Toggle sidebar visibility / Focus file explorer
+- `n`: Create new file (when file explorer focused)
+- `shift+n`: Create new folder (when file explorer focused)
+- `r`: Rename file (when file explorer focused)
+- `d`: Delete file (when file explorer focused)
+- `Enter`: Open selected file
+
+Terminal:
+
+- `Ctrl+t`: Create a new terminal editor
+
+### Vim Key Bindings
+
+Leader key is set to `<Space>`:
+
+- Navigation:
+  - `Shift+h`: Previous buffer
+  - `Shift+l`: Next buffer
+  - `<leader>v`: Split window vertically
+- File operations:
+  - `<leader>w`: Save file
+  - `<leader>q`: Quit
+  - `<leader>x`: Save and quit
+  - `<leader>p`: Format document
+- Search:
+  - `<leader>ff`: Quick file search (find files)
+  - `<leader>fg`: Find in files (file grep)
+- Code navigation:
+  - `sd`: Show definition preview hover
+  - `gd`: Go to definition
+- Visual mode:
+  - `<` / `>`: Indent/outdent lines while staying in visual mode
+  - `J` / `K`: Move selected lines up/down
+- Insert mode:
+  - `kj`: Escape to normal mode
+
+### Settings
+
+- Vim mode is enabled with line numbers set to relative
+- Format on save is enabled
+- Prettier is set as the default formatter for TypeScript, TypeScript React, and JSON files
+- Custom UI configuration with:
+  - Activity bar hidden
+  - Minimap disabled
+  - Command center enabled
+  - Window zoom level at 0.5
+
+### Installation
+
+1. **Create Symbolic Links**
+
+   Create symbolic links for the Cursor settings files by running the following commands in your terminal:
+
+   ```zsh
+   ln -s ~/.dotfiles/cursor/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
+   ln -s ~/.dotfiles/cursor/keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json
+   ```
+
+2. **Install Extensions**
+
+   Launch Cursor and install the recommended extensions using the command line:
+
+   ```zsh
+   cat ~/.dotfiles/cursor/extensions.txt | xargs -L 1 cursor --install-extension
+   ```
+
+   This command reads the extension IDs from the file and installs them all at once.
+
+3. **Restart Cursor**
+
+   Restart Cursor to apply all settings and keybindings.
