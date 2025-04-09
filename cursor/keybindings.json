@@ -36,7 +36,7 @@
   },
   // Terminal
   {
-    "key": "space t",
+    "key": "ctrl+t",
     "command": "workbench.action.createTerminalEditor",
     "when": "!terminalFocus"
   }

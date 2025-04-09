@@ -1,27 +1,30 @@
 {
-  "window.commandCenter": 1,
-  "window.newWindowProfile": "Vim",
+  "window.commandCenter": true,
   "workbench.sideBar.location": "left",
   "window.customTitleBarVisibility": "never",
   "workbench.activityBar.location": "hidden",
   "editor.formatOnSave": true,
-  "editor.suggest.insertMode": "replace",
-  "terminal.integrated.fontFamily": "MesloLGS NF",
-  "editor.linkedEditing": true,
-  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.suggest.insertMode": "replace", // Replaces text when accepting suggestions
+  "editor.linkedEditing": true, // Auto-edits matching HTML tags
+  "javascript.updateImportsOnFileMove.enabled": "always", // Updates imports on file move
   "window.zoomLevel": 0.5,
-  "launch": {},
-  "[json]": {},
   "editor.minimap.enabled": false,
-  "breadcrumbs.enabled": false,
-  "update.showReleaseNotes": false,
+  "breadcrumbs.enabled": true,
+  "update.showReleaseNotes": true,
   "zenMode.hideLineNumbers": false,
   "editor.lineNumbers": "relative",
   "workbench.list.openMode": "singleClick",
-  "explorer.openEditors.visible": 0,
-  "workbench.list.automaticKeyboardNavigation": true,
+  "explorer.openEditors.visible": 1,
+  "workbench.list.automaticKeyboardNavigation": true, // Enables keyboard navigation in lists(sidebar)
+
+  // VIM 
   "vim.leader": "<Space>",
-  "vim.hlsearch": true,
+  "vim.incsearch": true, // Shows search results as you type
+  "vim.hlsearch": true, // Highlights search results in Vim mode.
+  "vim.useCtrlKeys": true, // Enables Ctrl key combinations in Vim mode
+  "vim.easymotion": true, // Enables EasyMotion plugin for Vim
+  "vim.useSystemClipboard": true, // Syncs system clipboard with Vim registers(yank)
+  "vim.statusBarCommand": true, // Shows Vim commands in status bar
   "vim.normalModeKeyBindingsNonRecursive": [
     // NAVIGATION
     // switch b/w buffers
@@ -60,6 +63,12 @@
     // Move selected lines while staying in visual mode
     { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
     { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["k", "j"],
+      "after": ["<Esc>"]
+    }
   ],
   // Formatting
   "[typescriptreact]": {
