@@ -290,13 +290,11 @@ Leader key is set to `<Space>`:
 
 2. **Install Extensions**
 
-   Launch Cursor and install the recommended extensions using the command line:
+   This command reads the extension IDs from the file and installs them all at once.
 
    ```zsh
    cat ~/.dotfiles/cursor/extensions.txt | xargs -L 1 cursor --install-extension
    ```
-
-   This command reads the extension IDs from the file and installs them all at once.
 
 3. **Restart Cursor**
 
