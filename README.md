@@ -269,6 +269,7 @@ Leader key is set to `<Space>`:
 ### Settings
 
 - Vim mode is enabled with line numbers set to relative
+  - run: `defaults write com.cursor.Cursor ApplePressAndHoldEnabled -bool false`  to enable keyrepeat, and restart cursor
 - Format on save is enabled
 - Prettier is set as the default formatter for TypeScript, TypeScript React, and JSON files
 - Custom UI configuration with:
