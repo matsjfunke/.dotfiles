@@ -39,5 +39,15 @@
     "key": "ctrl+t",
     "command": "workbench.action.createTerminalEditor",
     "when": "!terminalFocus"
+  },
+  // Cursor
+  {
+    "key": "cmd+k",
+    "command": "composerMode.agent"
+  },
+  // Focus Editor
+  {
+    "key": "cmd+h",
+    "command": "workbench.action.focusActiveEditorGroup"
   }
 ]
