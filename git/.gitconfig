@@ -23,6 +23,9 @@
 	scm = commit -S -m
 	lfg = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
 	co = checkout
+  sw = switch
+  st = status -s
+  p = pull
 [gpg]
 	format = ssh
 [core]
