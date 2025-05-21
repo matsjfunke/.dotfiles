@@ -50,6 +50,18 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Map Caps Lock to ESC",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "caps_lock"
+                },
+                "to": [{ "key_code": "escape" }],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },

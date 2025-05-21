@@ -101,6 +101,7 @@ ln -s ~/.dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
   - Option+Ü to ] (right bracket)
   - Option+Ö to { (left curly brace)
   - Option+Ä to } (right curly brace)
+  - Caps lock to  ESC
 
 # Steps to Using Dotfiles on Mac
 
