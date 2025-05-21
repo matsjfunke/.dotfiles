@@ -85,6 +85,23 @@ git scm "": Signed commit with message.
   'CTRL + v' activates copy mode
 - font / UI setup
 
+## Karabiner-Elements
+
+
+```zsh
+# install with homebrew:
+brew install --cask karabiner-elements
+
+# Create Symbolic Links
+ln -s ~/.dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+```
+
+- Custom key mappings for a German keyboard layout:
+  - Option+P to [ (left bracket)
+  - Option+Ü to ] (right bracket)
+  - Option+Ö to { (left curly brace)
+  - Option+Ä to } (right curly brace)
+
 # Steps to Using Dotfiles on Mac
 
 1. **Install Homebrew**
@@ -127,6 +144,7 @@ git scm "": Signed commit with message.
    ln -s ~/.dotfiles/nvim ~/.config/nvim
    ln -s ~/.dotfiles/htop/htoprc ~/.config/htop/htoprc
    ln -s ~/.dotfiles/wezterm/.wezterm.lua ~/.wezterm.lua
+   ln -s ~/.dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
    ```
 
 5. **Source Configuration Files**
@@ -269,7 +287,7 @@ Leader key is set to `<Space>`:
 ### Settings
 
 - Vim mode is enabled with line numbers set to relative
-  - run: `defaults write com.cursor.Cursor ApplePressAndHoldEnabled -bool false`  to enable keyrepeat, and restart cursor
+  - run: `defaults write com.cursor.Cursor ApplePressAndHoldEnabled -bool false` to enable keyrepeat, and restart cursor
 - Format on save is enabled
 - Prettier is set as the default formatter for TypeScript, TypeScript React, and JSON files
 - Custom UI configuration with:
