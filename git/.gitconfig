@@ -6,7 +6,7 @@
 [user]
 	name = Mats Julius Funke
 	email = 125814808+matsjfunke@users.noreply.github.com
-	signingkey = /Users/matsjfunke/.ssh/github_signing
+	signingkey = /Users/matsfunke/.ssh/github_signing
 [core]
 	editor = nvim
 [init]

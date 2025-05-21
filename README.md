@@ -67,13 +67,36 @@
 - Git diff syntax-highlighting and line numbers (req: `brew install delta`)
 
 **commands**:
-git diff: Syntax-highlighted diff.
-git lg: compact, colorfull log view.
-git lfg "": Add, commit, push.
-git staash: Stash all changes.
-git uncommit: Undo last commit.
-git amend: Amend last commit.
-git scm "": Signed commit with message.
+diff: Syntax-highlighted diff.
+lg: compact, colorfull log view.
+lfg "": Add, commit, push.
+staash: Stash all changes.
+uncommit: Undo last commit.
+amend: Amend last commit.
+scm "": Signed commit with message.
+st: concise status
+co: checkout
+sw: switch
+p: pull
+
+**steps to set up commit signing**:
+
+```sh
+# Step 1: Generate a new SSH key for commit signing
+ssh-keygen -t ed25519 -f ~/.ssh/github_signing
+
+# Step 2: Configure Git to use SSH for commit signing
+git config --global gpg.format ssh
+
+# Set the newly created key as your signing key
+git config --global user.signingkey ~/.ssh/github_signing
+
+# Set default to automatic signing for all commits
+git config --global commit.gpgsign true
+
+# Step 3: Display the public key to add to GitHub
+cat ~/.ssh/github_signing.pub
+```
 
 ## htop
 
@@ -86,7 +109,6 @@ git scm "": Signed commit with message.
 - font / UI setup
 
 ## Karabiner-Elements
-
 
 ```zsh
 # install with homebrew:
@@ -101,7 +123,7 @@ ln -s ~/.dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
   - Option+Ü to ] (right bracket)
   - Option+Ö to { (left curly brace)
   - Option+Ä to } (right curly brace)
-  - Caps lock to  ESC
+  - Caps lock to ESC
 
 # Steps to Using Dotfiles on Mac
 
