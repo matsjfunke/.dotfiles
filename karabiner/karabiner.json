@@ -62,10 +62,30 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Map < to < and > to >",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "grave_accent_and_tilde"
+                },
+                "to": [{ "key_code": "non_us_backslash" }],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "grave_accent_and_tilde",
+                  "modifiers": { "mandatory": ["left_shift"] }
+                },
+                "to": [{ "key_code": "non_us_backslash", "modifiers": ["left_shift"] }],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
-      "name": "Default profile",
+      "name": "Mac QWERTZ Keyboard",
       "selected": true,
       "virtual_hid_keyboard": {
         "country_code": 0,
