@@ -19,18 +19,19 @@
 	staash = stash --all
 	lg = log --oneline --graph --decorate --all
 	uncommit = reset --soft HEAD~1
-  amend = commit --amend -S
-	scm = commit -S -m
 	lfg = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
 	co = checkout
   sw = switch
+  swc = switch -c
   st = status -s
   p = pull
 [gpg]
 	format = ssh
 [core]
-    pager = delta
+  pager = delta
 [delta]
-    line-numbers = true
+  line-numbers = true
 [commit]
 	gpgsign = true
+[push]
+	autoSetupRemote = true
