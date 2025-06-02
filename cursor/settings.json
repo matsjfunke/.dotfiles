@@ -17,7 +17,7 @@
   "explorer.openEditors.visible": 1,
   "workbench.list.automaticKeyboardNavigation": true, // Enables keyboard navigation in lists(sidebar)
 
-  // VIM 
+  // VIM
   "vim.leader": "<Space>",
   "vim.incsearch": true, // Shows search results as you type
   "vim.hlsearch": true, // Highlights search results in Vim mode.
@@ -80,5 +80,8 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[mdx]": {
+    "editor.defaultFormatter": "unifiedjs.vscode-mdx"
   }
 }
