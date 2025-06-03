@@ -55,5 +55,15 @@
   {
     "key": "cmd+h",
     "command": "workbench.action.focusActiveEditorGroup"
+  },
+  {
+    "key": "cmd+n",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
   }
 ]
