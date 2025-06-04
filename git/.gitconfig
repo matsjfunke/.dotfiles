@@ -25,6 +25,7 @@
   swc = switch -c
   st = status -s
   p = pull
+	pr = "!f() { \n  gh pr create --title \"$1\" --body \"\" --fill;\n}; f"
 [gpg]
 	format = ssh
 [core]
