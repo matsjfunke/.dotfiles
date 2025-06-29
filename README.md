@@ -1,14 +1,68 @@
-# Features
+# My Configurations
 
-## Zsh
+> "If a craftsman wants to do good work, he must first sharpen his tools." ~ Confucius
 
-![prompt](img/prompt.png)
+## My tools 🛠️
 
-- sets up the executable search path & local settings for the shell environment
-- custom prompt
-- measures and displays command execution time in milliseconds
-- loads plugins syntax highlighting and autosuggestions
-- aliases and functions for convenience
+- [Git Config](#git-config)
+- [Cursor](#cursor)
+  - [Cursor README](cursor/README.md)
+- [Neovim](#neovim)
+  - [NVIM README](nvim/README.md)
+- [Wezterm](#wezterm)
+- [Zsh](#zsh)
+- [Karabiner (i'm a qwertz normie)](#karabiner-elements)
+
+[Steps to Using Dotfiles on Mac](#steps-to-using-dotfiles-on-mac)
+[Use configs Individually](#use-configs-individually)
+
+## Git Config
+
+- Git LFS: Ensures large file handling is managed.
+- User Details / SSH signing: Sets your name, email, and SSH signing key.
+- Pull Behavior: Always rebases instead of merging when pulling.
+- Aliases: Defines shortcuts for common commands, including stash, log, reset, and commit amendments.
+- Sets the default branch name to main.
+- Color UI: Enables automatic color in the UI.
+- Neovim as the default editor.
+- Git diff syntax-highlighting and line numbers (req: `brew install delta`)
+
+**commands**:
+diff: Syntax-highlighted diff.
+lg: compact, colorfull log view.
+lfg "": Add, commit, push.
+staash: Stash all changes.
+uncommit: Undo last commit.
+st: concise status
+co: checkout
+sw: switch
+swc: switch create
+p: pull
+
+**steps to set up commit signing**:
+
+```sh
+# Step 1: Generate a new SSH key for commit signing
+ssh-keygen -t ed25519 -f ~/.ssh/github_signing
+
+# Step 2: Configure Git to use SSH for commit signing
+git config --global gpg.format ssh
+
+# Set the newly created key as your signing key
+git config --global user.signingkey ~/.ssh/github_signing
+
+# Set default to automatic signing for all commits
+git config --global commit.gpgsign true
+
+# Step 3: Display the public key to add to GitHub
+cat ~/.ssh/github_signing.pub
+```
+
+## Cursor
+
+VS Code with + AI \* Vim bindings 🚀
+
+more details on the config in the [Cursor README](cursor/README.md)
 
 ## Neovim
 
@@ -52,60 +106,19 @@
   - Provides a visually appealing dashboard.
 - **treesitter.lua**:
   - Provides syntax highlighting.
-- **markview-nvim.lua**:
-  - A markdown previewer that renders markdown in a readable format.
 
-## Git Config
+## Zsh
 
-- Git LFS: Ensures large file handling is managed.
-- User Details / SSH signing: Sets your name, email, and SSH signing key.
-- Pull Behavior: Always rebases instead of merging when pulling.
-- Aliases: Defines shortcuts for common commands, including stash, log, reset, and commit amendments.
-- Sets the default branch name to main.
-- Color UI: Enables automatic color in the UI.
-- Neovim as the default editor.
-- Git diff syntax-highlighting and line numbers (req: `brew install delta`)
-
-**commands**:
-diff: Syntax-highlighted diff.
-lg: compact, colorfull log view.
-lfg "": Add, commit, push.
-staash: Stash all changes.
-uncommit: Undo last commit.
-amend: Amend last commit.
-scm "": Signed commit with message.
-st: concise status
-co: checkout
-sw: switch
-p: pull
-
-**steps to set up commit signing**:
-
-```sh
-# Step 1: Generate a new SSH key for commit signing
-ssh-keygen -t ed25519 -f ~/.ssh/github_signing
-
-# Step 2: Configure Git to use SSH for commit signing
-git config --global gpg.format ssh
-
-# Set the newly created key as your signing key
-git config --global user.signingkey ~/.ssh/github_signing
-
-# Set default to automatic signing for all commits
-git config --global commit.gpgsign true
-
-# Step 3: Display the public key to add to GitHub
-cat ~/.ssh/github_signing.pub
-```
-
-## htop
-
-- nicer UI
+- sets up the executable search path & local settings for the shell environment
+- custom prompt
+- measures and displays command execution time in milliseconds
+- loads plugins syntax highlighting and autosuggestions
+- aliases and functions for convenience
 
 ## Wezterm
 
 - keymaps
-  'CTRL + v' activates copy mode
+  'CTRL + v' activates copy mode (think visual mode)
 - font / UI setup
 
 ## Karabiner-Elements
@@ -125,7 +138,7 @@ ln -s ~/.dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
   - Option+Ä to } (right curly brace)
   - Caps lock to ESC
 
-# Steps to Using Dotfiles on Mac
+## Using Dotfiles on Mac
 
 1. **Install Homebrew**
 
@@ -231,7 +244,7 @@ ln -s ~/.dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
      ssh -T git@github.com
      ```
 
-# Use configs Individually
+## Using configs Individually
 
 Zsh
 
@@ -247,97 +260,3 @@ htop
 
 - clone into .config/htop `git clone https://github.com/matsjfunke/dotfiles/blob/main/htop/htoprc ~/.config`
 - or copy and sym-link `ln -s ~/.dotfiles/htop/htoprc ~/.config/htop/htoprc`
-
-## Cursor
-
-- VS Code setup with Vim bindings and productivity-focused keybindings
-
-### Extensions
-
-The following VS Code extensions are used:
-
-- `bradlc.vscode-tailwindcss`: Tailwind CSS IntelliSense
-- `dbaeumer.vscode-eslint`: ESLint integration
-- `eamodio.gitlens`: Git integration with blame annotations and history
-- `esbenp.prettier-vscode`: Prettier code formatter
-- `hashicorp.terraform`: Terraform support
-- `lokalise.i18n-ally`: i18n management
-- `prisma.prisma`: Prisma database toolkit support
-- `usernamehw.errorlens`: Inline error highlighting
-- `vscodevim.vim`: Vim emulation
-- `yoavbls.pretty-ts-errors`: Improved TypeScript error messages
-
-### Key Bindings
-
-File Tree Navigation:
-
-- `Ctrl+s`: Toggle sidebar visibility / Focus file explorer
-- `n`: Create new file (when file explorer focused)
-- `shift+n`: Create new folder (when file explorer focused)
-- `r`: Rename file (when file explorer focused)
-- `d`: Delete file (when file explorer focused)
-- `Enter`: Open selected file
-
-Terminal:
-
-- `Ctrl+t`: Create a new terminal editor
-
-### Vim Key Bindings
-
-Leader key is set to `<Space>`:
-
-- Navigation:
-  - `Shift+h`: Previous buffer
-  - `Shift+l`: Next buffer
-  - `<leader>v`: Split window vertically
-- File operations:
-  - `<leader>w`: Save file
-  - `<leader>q`: Quit
-  - `<leader>x`: Save and quit
-  - `<leader>p`: Format document
-- Search:
-  - `<leader>ff`: Quick file search (find files)
-  - `<leader>fg`: Find in files (file grep)
-- Code navigation:
-  - `sd`: Show definition preview hover
-  - `gd`: Go to definition
-- Visual mode:
-  - `<` / `>`: Indent/outdent lines while staying in visual mode
-  - `J` / `K`: Move selected lines up/down
-- Insert mode:
-  - `kj`: Escape to normal mode
-
-### Settings
-
-- Vim mode is enabled with line numbers set to relative
-  - run: `defaults write com.cursor.Cursor ApplePressAndHoldEnabled -bool false` to enable keyrepeat, and restart cursor
-- Format on save is enabled
-- Prettier is set as the default formatter for TypeScript, TypeScript React, and JSON files
-- Custom UI configuration with:
-  - Activity bar hidden
-  - Minimap disabled
-  - Command center enabled
-  - Window zoom level at 0.5
-
-### Installation
-
-1. **Create Symbolic Links**
-
-   Create symbolic links for the Cursor settings files by running the following commands in your terminal:
-
-   ```zsh
-   ln -s ~/.dotfiles/cursor/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
-   ln -s ~/.dotfiles/cursor/keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json
-   ```
-
-2. **Install Extensions**
-
-   This command reads the extension IDs from the file and installs them all at once.
-
-   ```zsh
-   cat ~/.dotfiles/cursor/extensions.txt | xargs -L 1 cursor --install-extension
-   ```
-
-3. **Restart Cursor**
-
-   Restart Cursor to apply all settings and keybindings.

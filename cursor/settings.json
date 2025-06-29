@@ -10,14 +10,13 @@
   "editor.suggest.insertMode": "replace", // Replaces text when accepting suggestions
   "editor.linkedEditing": true, // Auto-edits matching HTML tags
   "javascript.updateImportsOnFileMove.enabled": "always", // Updates imports on file move
-  "window.zoomLevel": 0.5,
+  "window.zoomLevel": 0.1,
   "editor.minimap.enabled": false,
   "breadcrumbs.enabled": true,
   "update.showReleaseNotes": true,
   "zenMode.hideLineNumbers": false,
   "editor.lineNumbers": "relative",
   "workbench.list.openMode": "singleClick",
-  "explorer.openEditors.visible": 1,
   "workbench.list.automaticKeyboardNavigation": true, // Enables keyboard navigation in lists(sidebar)
 
   // VIM

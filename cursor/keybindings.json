@@ -40,12 +40,6 @@
     "key": "ctrl+d",
     "when": "editorTextFocus"
   },
-  // Terminal
-  {
-    "key": "ctrl+t",
-    "command": "workbench.action.createTerminalEditor",
-    "when": "!terminalFocus"
-  },
   // Cursor
   {
     "key": "cmd+k",
@@ -56,6 +50,7 @@
     "key": "cmd+h",
     "command": "workbench.action.focusActiveEditorGroup"
   },
+  // Terminal
   {
     "key": "cmd+n",
     "command": "workbench.action.terminal.new",
