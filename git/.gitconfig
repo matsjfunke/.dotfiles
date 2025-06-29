@@ -1,20 +1,43 @@
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
 [user]
 	name = Mats Julius Funke
 	email = 125814808+matsjfunke@users.noreply.github.com
 	signingkey = ~/.ssh/github_signing
 [core]
 	editor = nvim
+  pager = delta
+[gpg]
+	format = ssh
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = true
+[column] 
+  ui = auto
 [color]
 	ui = auto
 [pull]
 	rebase = true
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
+[fetch]
+	prune = true
+[push]
+	autoSetupRemote = true
+[tag]
+  sort = version:refname
+[branch]
+  sort = -committerdate
+[help]
+  autocorrect = prompt
+[delta]
+  line-numbers = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 [alias]
 	staash = stash --all
 	lg = log --oneline --graph --decorate --all
@@ -26,13 +49,3 @@
   st = status -s
   p = pull
 	pr = "!f() { \n  gh pr create --title \"$1\" --body \"\" --fill;\n}; f"
-[gpg]
-	format = ssh
-[core]
-  pager = delta
-[delta]
-  line-numbers = true
-[commit]
-	gpgsign = true
-[push]
-	autoSetupRemote = true
