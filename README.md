@@ -18,28 +18,41 @@
 
 ## Git Config
 
-- Git LFS: Ensures large file handling is managed.
-- User Details / SSH signing: Sets your name, email, and SSH signing key.
-- Pull Behavior: Always rebases instead of merging when pulling.
-- Aliases: Defines shortcuts for common commands, including stash, log, reset, and commit amendments.
-- Sets the default branch name to main.
-- Color UI: Enables automatic color in the UI.
-- Neovim as the default editor.
-- Git diff syntax-highlighting and line numbers (req: `brew install delta`)
+- **User Details & SSH Signing**: Sets your name, email, and SSH signing key for commit verification
+- **GPG Configuration**: Uses SSH format for commit signing
+- **Core Settings**:
+  - Neovim as the default editor
+  - Delta as the pager for enhanced diff viewing (req: `brew install delta`)
+- **Branch Management**:
+  - Sets default branch name to main
+  - Enables automatic rebase on pull
+  - Configures rebase with auto-squash, auto-stash, and update-refs
+- **Fetch & Push**:
+  - Automatically prunes remote-tracking references
+  - Auto-setup remote when pushing new branches
+- **Display & UI**:
+  - Automatic color UI
+  - Column UI for better output formatting
+  - Help autocorrect with prompt
+  - Tags sorted by version
+  - Branches sorted by most recent commit date
+- **Git LFS**: Ensures large file handling is managed
+- **Delta Integration**: Enhanced diff viewing with line numbers
 
-**commands**:
-diff: Syntax-highlighted diff.
-lg: compact, colorfull log view.
-lfg "": Add, commit, push.
-staash: Stash all changes.
-uncommit: Undo last commit.
-st: concise status
-co: checkout
-sw: switch
-swc: switch create
-p: pull
+**Aliases**:
 
-**steps to set up commit signing**:
+- `st`: concise status
+- `co`: checkout
+- `sw`: switch branch
+- `swc`: switch and create new branch
+- `p`: pull
+- `staash`: stash all changes
+- `lg`: compact, colorful log view with graph
+- `uncommit`: undo last commit (soft reset)
+- `lfg "message"`: add, commit, and push in one command
+- `pr "title"`: create GitHub PR with title (requires GitHub CLI)
+
+**Steps to set up commit signing**:
 
 ```sh
 # Step 1: Generate a new SSH key for commit signing
