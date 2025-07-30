@@ -38,6 +38,8 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[advice]
+	skippedCherryPicks = false
 [alias]
 	staash = stash --all
 	lg = log --oneline --graph --decorate --all
