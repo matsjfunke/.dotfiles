@@ -42,6 +42,7 @@
 	skippedCherryPicks = false
 [alias]
 	staash = stash --all
+  sm = stash push -u -m
 	lg = log --oneline --graph --decorate --all
 	uncommit = reset --soft HEAD~1
 	lfg = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
