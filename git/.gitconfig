@@ -51,5 +51,5 @@
   swc = switch -c
   st = status -s
   p = pull
-  ub = pull origin main
+	ub = !git fetch origin && git reset --hard origin/main
 	pr = "!f() { \n  gh pr create --title \"$1\" --body \"\" --fill;\n}; f"
