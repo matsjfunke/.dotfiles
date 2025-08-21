@@ -40,11 +40,6 @@
     "key": "ctrl+d",
     "when": "editorTextFocus"
   },
-  // Cursor
-  {
-    "key": "cmd+k",
-    "command": "composerMode.agent"
-  },
   // Focus Editor
   {
     "key": "cmd+h",
@@ -61,8 +56,13 @@
     "command": "workbench.action.terminal.kill",
     "when": "terminalFocus"
   },
+  // Cursor
   {
     "key": "cmd+e",
     "command": "composerMode.background"
-  }
+  },
+  {
+    "key": "cmd+l",
+    "command": "composerMode.agent"
+  },
 ]
