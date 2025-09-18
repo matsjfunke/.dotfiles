@@ -78,9 +78,12 @@ wta() {
 
 # git worktree delete
 wtd() {
+  # If no argument provided, use current directory name
   if [ -z "$1" ]; then
-    echo "Usage: wtd <branch-name>"
-    return 1
+    branch_name=$(basename $(pwd))
+    echo "No branch specified, using current directory: $branch_name"
+  else
+    branch_name="$1"
   fi
   
   # Get the main repo name by finding the main worktree
@@ -90,25 +93,24 @@ wtd() {
   
   # Check if we're currently in the worktree we want to delete
   current_dir=$(pwd)
-  target_dir=$(realpath "../$1" 2>/dev/null)
   
-  if [[ "$current_dir" == "$target_dir"* ]]; then
+  if [[ "$(basename "$current_dir")" == "$branch_name" ]]; then
     echo "You're currently in the worktree directory. Switching to main repo..."
     # Change directory BEFORE removing the worktree
     cd "../$repo_name"
     
-    # Remove the worktree
-    git worktree remove "../$1" --force
+    # Remove the worktree using the full path
+    git worktree remove "../$branch_name" --force
     
     # Delete the branch
-    git branch -D "$1"
+    git branch -D "$branch_name"
     
-    echo "Deleted worktree and branch: $1"
+    echo "Deleted worktree and branch: $branch_name"
   else
     # We're not in the target directory, safe to delete
-    git worktree remove "../$1" --force
-    git branch -D "$1"
-    echo "Deleted worktree and branch: $1"
+    git worktree remove "../$branch_name" --force
+    git branch -D "$branch_name"
+    echo "Deleted worktree and branch: $branch_name"
   fi
 }
 
