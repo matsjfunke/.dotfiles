@@ -65,6 +65,53 @@ google_search() {
   open "https://www.google.com/search?q=${query// /+}"
 }
 
+# git worktree add
+wta() {
+  if [ -z "$1" ]; then
+    echo "Usage: wta <branch-name>"
+    return 1
+  fi
+
+  git worktree add -b "$1" "../$1" main && cd "../$1" 
+  echo "Successfully created worktree & branch '../$1' and switched to it"
+}
+
+# git worktree delete
+wtd() {
+  if [ -z "$1" ]; then
+    echo "Usage: wtd <branch-name>"
+    return 1
+  fi
+  
+  # Get the main repo name by finding the main worktree
+  main_repo_path=$(git worktree list | head -n 1 | awk '{print $1}')
+  repo_name=$(basename "$main_repo_path")
+  echo "Main repo: $repo_name"
+  
+  # Check if we're currently in the worktree we want to delete
+  current_dir=$(pwd)
+  target_dir=$(realpath "../$1" 2>/dev/null)
+  
+  if [[ "$current_dir" == "$target_dir"* ]]; then
+    echo "You're currently in the worktree directory. Switching to main repo..."
+    # Change directory BEFORE removing the worktree
+    cd "../$repo_name"
+    
+    # Remove the worktree
+    git worktree remove "../$1" --force
+    
+    # Delete the branch
+    git branch -D "$1"
+    
+    echo "Deleted worktree and branch: $1"
+  else
+    # We're not in the target directory, safe to delete
+    git worktree remove "../$1" --force
+    git branch -D "$1"
+    echo "Deleted worktree and branch: $1"
+  fi
+}
+
 # Aliases 
 alias search="google_search"
 alias dc="docker-compose"

@@ -1,5 +1,4 @@
 {
-  "files.autoSave": "afterDelay",
   "security.promptForLocalFileProtocolHandling": false,
   "workbench.colorTheme": "Kanagawa Wave",
   "window.commandCenter": true,
