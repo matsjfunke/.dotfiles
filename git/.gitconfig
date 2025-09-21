@@ -41,14 +41,15 @@
 [branch]
     sort = -committerdate # Sort branches by most recent commit (newest first)
 [alias]
-	staash = stash --all # Stash everything including untracked files
-	sm = stash push -u -m # Stash with message
-	sw = switch # Switch branches
-	swc = switch -c # Create and switch to new branch
-	st = status -s # Consice status output
-	lg = log --oneline --graph --decorate --all # Pretty log with graph and all branches
-	p = pull # Simple pull shorthand
-	ub = !git fetch origin && git reset --hard origin/main # Update branch to match origin/main
-	uncommit = reset --soft HEAD~1 # Undo last commit but keep changes staged
-	lfg = "!f() { git add . && git commit -m \"$1\" && git push; }; f" # LETS F*CKING GO: Add, commit, push in one command
-	pr = "!f() { \n  gh pr create --title \"$1\" --body \"\" --fill;\n}; f"  # Create PR with GitHub CLI
+    staash = stash --all # Stash everything including untracked files
+    sm = stash push -u -m # Stash with message
+    sw = switch # Switch branches
+    swc = switch -c # Create and switch to new branch
+    st = status -s # Consice status output
+    lg = log --oneline --graph --decorate --all # Pretty log with graph and all branches
+    p = pull # Simple pull shorthand
+    ub = !git fetch origin && git reset --hard origin/main # Update branch to match origin/main
+    uncommit = reset --soft HEAD~1 # Undo last commit but keep changes staged
+    lfg = "!f() { git add . && git commit -m \"$1\" && git push; }; f" # LETS F*CKING GO: Add, commit, push in one command
+    pr = "!f() { \n  gh pr create --title \"$1\" --body \"\" --fill;\n}; f"  # Create PR with GitHub CLI
+    wtl = worktree list # list worktrees
