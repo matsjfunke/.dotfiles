@@ -1,55 +1,54 @@
 [user]
-	name = Mats Julius Funke
-	email = 125814808+matsjfunke@users.noreply.github.com
-	signingkey = ~/.ssh/github_signing
-[core]
-	editor = nvim
-  pager = delta
-[gpg]
-	format = ssh
-[init]
-	defaultBranch = main
+    name = Mats Julius Funke
+    email = 125814808+matsjfunke@users.noreply.github.com
+    signingkey = ~/.ssh/github_signing 	# Path to SSH private key used for signing commits
 [commit]
-	gpgsign = true
-[column] 
-  ui = auto
-[color]
-	ui = auto
-[pull]
-	rebase = true
+    gpgsign = true # Automatically sign all commits with your SSH key
+[gpg]
+    format = ssh # Use SSH keys instead of GPG keys for signing commits
+[core]
+    editor = nvim # Default text editor for commit messages, interactive rebase, fixing merge conflicts etc.
+    pager = delta # fancy diff view (more later)
+[init]
+    defaultBranch = main # Use 'main' instead of 'master' for new repositories (personal preference)
 [rebase]
-  autoSquash = true
-  autoStash = true
-  updateRefs = true
+    autoSquash = true # Automatically squash commits marked with 'fixup!' or 'squash!'
+    autoStash = true # Automatically stash changes before rebase and pop after
+    updateRefs = true # Update branch pointers that point to rebased commits
+[pull]
+    rebase = true # Always rebase instead of merge when pulling (cleaner history)
 [fetch]
-	prune = true
+    prune = true # delete local branch if remote was deleted
 [push]
-	autoSetupRemote = true
-[tag]
-  sort = version:refname
-[branch]
-  sort = -committerdate
-[help]
-  autocorrect = prompt
-[delta]
-  line-numbers = true
+    autoSetupRemote = true # Automatically create remote branch on first push of local
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+    required = true # LFS is required for this repo
+    clean = git-lfs clean -- %f # Clean filter for storing files
+    smudge = git-lfs smudge -- %f # Smudge filter for retrieving files
+    process = git-lfs filter-process # Process filter for efficiency
+[color]
+    ui = auto # Enable colored output in terminal (auto = only when outputting to terminal)
+[column]
+    ui = auto # Display output in columns
+[delta]
+    line-numbers = true # Show line numbers in delta diff viewer
+[help]
+    autocorrect = prompt # Hint for typos
 [advice]
-	skippedCherryPicks = false
+    skippedCherryPicks = false # Dont show advice about skipped cherry-picks during rebase
+[tag]
+    sort = version:refname # Sort tags by version number (v1.0, v1.1, v2.0, etc.)
+[branch]
+    sort = -committerdate # Sort branches by most recent commit (newest first)
 [alias]
-	staash = stash --all
-  sm = stash push -u -m
-	lg = log --oneline --graph --decorate --all
-	uncommit = reset --soft HEAD~1
-	lfg = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
-	co = checkout
-  sw = switch
-  swc = switch -c
-  st = status -s
-  p = pull
-	ub = !git fetch origin && git reset --hard origin/main
-	pr = "!f() { \n  gh pr create --title \"$1\" --body \"\" --fill;\n}; f"
+	staash = stash --all # Stash everything including untracked files
+	sm = stash push -u -m # Stash with message
+	sw = switch # Switch branches
+	swc = switch -c # Create and switch to new branch
+	st = status -s # Consice status output
+	lg = log --oneline --graph --decorate --all # Pretty log with graph and all branches
+	p = pull # Simple pull shorthand
+	ub = !git fetch origin && git reset --hard origin/main # Update branch to match origin/main
+	uncommit = reset --soft HEAD~1 # Undo last commit but keep changes staged
+	lfg = "!f() { git add . && git commit -m \"$1\" && git push; }; f" # LETS F*CKING GO: Add, commit, push in one command
+	pr = "!f() { \n  gh pr create --title \"$1\" --body \"\" --fill;\n}; f"  # Create PR with GitHub CLI
