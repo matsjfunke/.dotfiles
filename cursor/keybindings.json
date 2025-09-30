@@ -63,10 +63,6 @@
   },
   // Cursor
   {
-    "key": "cmd+e",
-    "command": "composerMode.background"
-  },
-  {
     "key": "cmd+l",
     "command": "composerMode.agent"
   }

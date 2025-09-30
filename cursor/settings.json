@@ -1,4 +1,6 @@
 {
+  "terminal.integrated.fontFamily": "D2CodingLigature Nerd Font Mono",
+  "terminal.integrated.fontSize": 14,
   "security.promptForLocalFileProtocolHandling": false,
   "workbench.colorTheme": "Kanagawa Wave",
   "window.commandCenter": true,
