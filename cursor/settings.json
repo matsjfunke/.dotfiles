@@ -89,5 +89,6 @@
   },
   "workbench.editor.enablePreview": false,
   "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": "active"
+  "editor.guides.bracketPairs": "active",
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }

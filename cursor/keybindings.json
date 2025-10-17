@@ -65,5 +65,9 @@
   {
     "key": "cmd+l",
     "command": "composerMode.agent"
+  },
+  {
+    "key": "cmd+[Semicolon]",
+    "command": "composerMode.plan"
   }
 ]
