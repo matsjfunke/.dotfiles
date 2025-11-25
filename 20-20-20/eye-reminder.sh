@@ -16,4 +16,4 @@
 osascript -e 'display dialog "👀 Eye Break!\n\nLook at something 20 feet (6 meters) away for 20 seconds.\n\nTimer running..." buttons {"OK"} default button 1 giving up after 20'
 
 # Show completion message
-osascript -e 'display dialog "✅ Done!\n\nBack to building!" buttons {"OK"} default button 1 giving up after 2'
+osascript -e 'display dialog "✅ Done!\n\nBack to building!" buttons {"OK"} default button 1 giving up after 1'
