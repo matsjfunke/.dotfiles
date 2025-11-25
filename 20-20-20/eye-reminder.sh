@@ -1,7 +1,19 @@
 #!/bin/bash
 
-# Zeige Start-Dialog
-osascript -e 'display dialog "👀 Augenpause!\n\nSchaue jetzt für 20 Sekunden auf etwas 6 Meter entferntes.\n\nTimer läuft..." buttons {"OK"} default button 1 giving up after 20'
+# 20-20-20 Rule Eye Break Reminder
+# Every 20 minutes, look at something 20 feet (6 meters) away for 20 seconds
+#
+# To run with cron (every 20 minutes):
+# 1. Make executable: chmod +x eye-reminder.sh
+# 2. Edit crontab: crontab -e
+# 3. Add this line: */20 * * * * /Users/matsjfunke/.dotfiles/20-20-20/eye-reminder.sh
+# 4. Save and exit
+#
+# To test manually: ./eye-reminder.sh
+# To see running cronjobs: crontab -l
 
-# Zeige Ende-Benachrichtigung
-osascript -e 'display dialog "✅ Fertig!\n\nWeiter gehts!" buttons {"OK"} default button 1 giving up after 3'
+# Show start dialog with 20 second timer
+osascript -e 'display dialog "👀 Eye Break!\n\nLook at something 20 feet (6 meters) away for 20 seconds.\n\nTimer running..." buttons {"OK"} default button 1 giving up after 20'
+
+# Show completion message
+osascript -e 'display dialog "✅ Done!\n\nBack to building!" buttons {"OK"} default button 1 giving up after 2'
