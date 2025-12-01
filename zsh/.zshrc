@@ -132,6 +132,8 @@ alias pip="pip3.12"
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 # alias ls="colorls" # requires sudo gem install colorls 
 alias tree="tree -I 'env|venv|node_modules|__pycache__'"
+alias ngrok-3333="ngrok http --domain=optimal-meet-scorpion.ngrok-free.app 3333"
+
 export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
