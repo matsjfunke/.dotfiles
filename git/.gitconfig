@@ -42,6 +42,7 @@
     sort = -committerdate # Sort branches by most recent commit (newest first)
 [alias]
     staash = stash --all # Stash everything including untracked files
+    aadd = add . # add everything
     sm = stash push -u -m # Stash with message
     sw = switch # Switch branches
     swc = switch -c # Create and switch to new branch
@@ -55,3 +56,5 @@
     wtl = worktree list # list worktrees
     mwr = "!gh pr list --head $(git branch --show-current) --json number --jq '.[0].number' | xargs -I {} gh pr merge {} --auto --merge" # merge when ready fr current pr of branch
     conflicts = diff --name-only --diff-filter=U
+    rbc = rebase --continue
+    rba = rebase --abort
