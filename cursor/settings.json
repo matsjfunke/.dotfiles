@@ -1,6 +1,8 @@
 {
+  // Terminal
   "terminal.integrated.fontFamily": "D2CodingLigature Nerd Font Mono",
   "terminal.integrated.fontSize": 14,
+  "terminal.integrated.scrollback": 20000,
   "security.promptForLocalFileProtocolHandling": false,
   "workbench.colorTheme": "Kanagawa Wave",
   "window.commandCenter": true,
