@@ -1,4 +1,6 @@
 anysphere.cursorpyright
+aykutsarac.jsoncrack-vscode
+bbenoist.nix
 bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
 eamodio.gitlens
@@ -9,8 +11,10 @@ lokalise.i18n-ally
 metaphore.kanagawa-vscode-color-theme
 ms-python.debugpy
 ms-python.python
+ms-python.vscode-pylance
 orta.vscode-jest
 prisma.prisma
+unifiedjs.vscode-mdx
 usernamehw.errorlens
 vscodevim.vim
 yoavbls.pretty-ts-errors

@@ -2,8 +2,8 @@
 
 ## This Setup
 
-- **nix-darwin** (`darwin.nix`) — macOS system settings, Homebrew packages, Dock/Finder defaults
-- **Home Manager** (`home.nix`) — dotfile symlinks, user packages
+- **nix-darwin** (`darwin.nix`) — macOS system settings, Homebrew brews/casks
+- **Home Manager** (`home.nix`) — dotfile symlinks, CLI tools via Nix
 
 ## Install Nix
 
@@ -25,57 +25,54 @@ Search for packages:
 nix search nixpkgs ripgrep
 ```
 
-Try a package without installing:
+## Installing Packages
+
+### CLI tools (Nix) → `home.nix`
+
+Cross-platform tools managed by Nix:
 
 ```bash
-# in a shell
-nix shell nixpkgs#cowsay
-# run than exit
-nix run nixpkgs#neofetch
+# Search for a package
+nix search nixpkgs ripgrep
 ```
 
-Install a package:
+Add to `home.nix`:
 
-```bash
-nix profile install nixpkgs#ripgrep
+```nix
+home.packages = with pkgs; [
+  ripgrep  # add here
+];
 ```
 
-List installed packages:
+### Services / macOS-specific tools (Homebrew) → `darwin.nix`
 
-```bash
-nix profile list
+```nix
+brews = [
+  "postgresql@15"  # add here
+];
 ```
 
-Update all packages:
+### GUI apps (Homebrew casks) → `darwin.nix`
 
-```bash
-nix profile upgrade '.*'
+```nix
+casks = [
+  "wezterm"  # add here
+];
 ```
 
-Remove a package:
-
-```bash
-nix profile remove ripgrep
-```
-
-## nix-darwin + Home Manager
-
-First-time setup:
-
-```bash
-# Build and activate (installs nix-darwin + applies config)
-sudo nix run nix-darwin -- switch --flake ~/.dotfiles/nix#matsfunke
-```
-
-After changes to `darwin.nix` or `home.nix`:
+### Apply changes
 
 ```bash
 sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsfunke
 ```
 
-Update flake inputs (nixpkgs, home-manager, nix-darwin):
+## Quick Commands
 
-```bash
-nix flake update --flake ~/.dotfiles/nix
-sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsfunke
-```
+| Action                  | Command                                                        |
+| ----------------------- | -------------------------------------------------------------- |
+| Apply config changes    | `sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsfunke` |
+| Update all flake inputs | `nix flake update --flake ~/.dotfiles/nix`                     |
+| Search Nix packages     | `nix search nixpkgs <name>`                                    |
+| Search Homebrew         | `brew search <name>`                                           |
+| Try package temporarily | `nix shell nixpkgs#cowsay`                                     |
+| Run package once        | `nix run nixpkgs#neofetch`                                     |

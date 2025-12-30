@@ -24,4 +24,21 @@ in
     ".config/htop/htoprc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/htop/htoprc";
     ".config/karabiner/karabiner.json".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/karabiner/karabiner.json";
   };
+
+  # CLI tools (cross-platform, managed by Nix)
+  home.packages = with pkgs; [
+    bat
+    coreutils
+    delta       # git-delta
+    fastfetch
+    gh
+    git-lfs
+    htop
+    jq
+    neovim
+    ripgrep
+    rsync
+    tree
+    wget
+  ];
 }

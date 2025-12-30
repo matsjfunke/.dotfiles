@@ -57,6 +57,41 @@
   # Allow Touch ID for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  # Homebrew (managed declaratively)
+  homebrew = {
+    enable = true;
+    onActivation = {
+      cleanup = "zap"; # Remove unlisted packages
+      autoUpdate = false; # Don't auto-update on rebuild
+    };
+
+    taps = [
+      "homebrew/bundle"
+      "homebrew/services"
+    ];
+
+    # CLI tools
+    brews = [
+      "gemini-cli"
+      "ollama"
+      "openvpn"
+      "postgresql@15"
+      "python@3.12"
+    ];
+
+    # GUI apps
+    casks = [
+      "alchemy"
+      "chromedriver"
+      "emdash"
+      "ghostty"
+      "karabiner-elements"
+      "miniconda"
+      "ngrok"
+      "wezterm"
+    ];
+  };
+
   # Required for nix-darwin
   system.stateVersion = 5;
 }
