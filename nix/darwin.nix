@@ -19,7 +19,7 @@
       show-process-indicators = true;
       wvous-tl-corner = 1;  # Top-left: disabled
       wvous-tr-corner = 2;  # Top-right: Mission Control
-      wvous-bl-corner = 10; # Bottom-left: Put Display to Sleep
+      wvous-bl-corner = 13; # Bottom-left: Lock Screen
       wvous-br-corner = 1;  # Bottom-right: disabled
     };
 
@@ -52,8 +52,17 @@
     loginwindow = {
       GuestEnabled = false;
     };
+
+    # Require password immediately after sleep
+    screensaver = {
+      askForPassword = true;
+      askForPasswordDelay = 0;
+    };
   };
 
+  # Sleep settings
+  power.sleep.computer = 10;  # Minutes until computer sleeps
+  power.sleep.display = 3;    # Minutes until display sleeps
 
   # Allow Touch ID for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
@@ -71,7 +80,6 @@
       "homebrew/services"
     ];
 
-    # CLI tools
     brews = [
       "gemini-cli"
       "ollama"
@@ -80,19 +88,15 @@
       "python@3.12"
     ];
 
-    # GUI apps
     casks = [
       "alchemy"
       "beekeeper-studio"
-      "chromedriver"
       "docker-desktop"
       "emdash"
       "ghostty"
       "karabiner-elements"
-      "miniconda"
       "ngrok"
       "raycast"
-      "ghostty"
     ];
   };
 
