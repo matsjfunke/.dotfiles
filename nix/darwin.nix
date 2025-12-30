@@ -12,6 +12,7 @@
     # Dock
     dock = {
       autohide = true;
+      launchanim = true; # Bounce animation when opening apps
       show-recents = false;
       tilesize = 48;
       orientation = "bottom";
@@ -82,13 +83,16 @@
     # GUI apps
     casks = [
       "alchemy"
+      "beekeeper-studio"
       "chromedriver"
+      "docker-desktop"
       "emdash"
       "ghostty"
       "karabiner-elements"
       "miniconda"
       "ngrok"
-      "wezterm"
+      "raycast"
+      "ghostty"
     ];
   };
 
