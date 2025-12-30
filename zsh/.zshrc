@@ -7,9 +7,6 @@ export LANG=en_US.UTF-8
 # Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 
-eval "$(ssh-agent -s)"
-ssh-add --apple-use-keychain ~/.ssh/github
-
 # Prompt
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git

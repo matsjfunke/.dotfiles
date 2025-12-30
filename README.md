@@ -190,6 +190,7 @@ ln -s ~/.dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
    ```zsh
    ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
    ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
+   ln -s ~/.dotfiles/ssh/config ~/.ssh/config
    ln -s ~/.dotfiles/nvim ~/.config/nvim
    ln -s ~/.dotfiles/htop/htoprc ~/.config/htop/htoprc
    ln -s ~/.dotfiles/wezterm/.wezterm.lua ~/.wezterm.lua
