@@ -1,6 +1,11 @@
-export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# Nix
+[ -d '/nix' ] && export PATH="$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
+
+# Homebrew
+export PATH="/opt/homebrew/bin:$PATH"
 
 eval "$(ssh-agent -s)"
 ssh-add --apple-use-keychain ~/.ssh/github
@@ -30,20 +35,20 @@ setopt PROMPT_SUBST
 PS1='%F{010}   %F{014}   %~ %(!.#.)  $(git_prompt_info)%f%k'
 
 
-# Runtime 
-function preexec() {
-  timer=$(($(gdate +%s%0N)/1000000))
-}
-
-function precmd() {
-  if [ $timer ]; then
-    now=$(($(gdate +%s%0N)/1000000))
-    elapsed=$(($now-$timer))
-
-    export RPROMPT="%F{cyan}${elapsed}ms %{$reset_color%}"
-    unset timer
-  fi
-} 
+# Execution time 
+# function preexec() {
+#   timer=$(($(gdate +%s%0N)/1000000))
+# }
+# 
+# function precmd() {
+#   if [ $timer ]; then
+#     now=$(($(gdate +%s%0N)/1000000))
+#     elapsed=$(($now-$timer))
+# 
+#     export RPROMPT="%F{cyan}${elapsed}ms %{$reset_color%}"
+#     unset timer
+#   fi
+# } 
 
 
 # History in cache directory:
@@ -147,3 +152,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
