@@ -1,11 +1,12 @@
 { config, pkgs, ... }:
 
 let
-  dotfilesDir = "${config.home.homeDirectory}/.dotfiles";
+  homeDir = "/Users/matsfunke";
+  dotfilesDir = "${homeDir}/.dotfiles";
 in
 {
   home.username = "matsfunke";
-  home.homeDirectory = "/Users/matsfunke";
+  home.homeDirectory = homeDir;
 
   # Home Manager release version
   home.stateVersion = "24.11";

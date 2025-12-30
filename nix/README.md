@@ -2,7 +2,8 @@
 
 ## This Setup
 
-**Home Manager flake** (`flake.nix` + `home.nix`) — declaratively manages dotfile symlinks. Run `home-manager switch --flake .#matsfunke` to apply.
+- **nix-darwin** (`darwin.nix`) — macOS system settings, Homebrew packages, Dock/Finder defaults
+- **Home Manager** (`home.nix`) — dotfile symlinks, user packages
 
 ## Install Nix
 
@@ -57,24 +58,24 @@ Remove a package:
 nix profile remove ripgrep
 ```
 
-## Home Manager
+## nix-darwin + Home Manager
 
 First-time setup:
 
 ```bash
-# Run Home Manager (downloads and installs it, then applies config)
-nix run home-manager -- switch --flake ~/.dotfiles/nix#matsfunke
+# Build and activate (installs nix-darwin + applies config)
+sudo nix run nix-darwin -- switch --flake ~/.dotfiles/nix#matsfunke
 ```
 
-After changes to `home.nix`:
+After changes to `darwin.nix` or `home.nix`:
 
 ```bash
-home-manager switch --flake ~/.dotfiles/nix#matsfunke
+sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsfunke
 ```
 
-Rollback:
+Update flake inputs (nixpkgs, home-manager, nix-darwin):
 
 ```bash
-home-manager generations  # list available generations
-home-manager rollback     # revert to previous
+nix flake update --flake ~/.dotfiles/nix
+sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsfunke
 ```
