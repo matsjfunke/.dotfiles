@@ -12,8 +12,17 @@
 # To test manually: ./eye-reminder.sh
 # To see running cronjobs: crontab -l
 
-# Show start dialog with 20 second timer
-osascript -e 'display dialog "👀 Eye Break!\n\nLook at something 20 feet (6 meters) away for 20 seconds.\n\nTimer running..." buttons {"OK"} default button 1 giving up after 20'
-
-# Show completion message
-osascript -e 'display dialog "✅ Done!\n\nBack to building!" buttons {"OK"} default button 1 giving up after 1'
+# Show countdown dialog (updates every second)
+osascript <<'EOF'
+set countdown to 20
+set skipped to false
+repeat while countdown > 0 and not skipped
+    set result to display dialog "👀 Eye Break!" & return & return & "Look at something 20 feet (6 meters) away." & return & return & "⏱️ " & countdown & " seconds remaining..." buttons {"Skip"} default button 1 giving up after 1
+    if button returned of result is "Skip" then
+        set skipped to true
+    else
+        set countdown to countdown - 1
+    end if
+end repeat
+display notification "Back to building! 🛠️" with title "✅ Done!" sound name "Glass"
+EOF

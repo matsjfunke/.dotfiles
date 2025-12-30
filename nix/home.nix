@@ -41,4 +41,15 @@ in
     tree
     wget
   ];
+
+  # Launchd agents (macOS scheduled tasks)
+  launchd.agents.eye-reminder = {
+    enable = true;
+    config = {
+      Label = "com.matsfunke.eye-reminder";
+      ProgramArguments = [ "${dotfilesDir}/20-20-20/eye-reminder.sh" ];
+      StartInterval = 1200;  # 20 minutes in seconds
+      RunAtLoad = true;
+    };
+  };
 }
