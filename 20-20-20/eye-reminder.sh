@@ -24,5 +24,5 @@ repeat while countdown > 0 and not skipped
         set countdown to countdown - 1
     end if
 end repeat
-display notification "Back to building! 🛠️" with title "✅ Done!" sound name "Glass"
+display notification "Back to building! 🛠️" with title "✅ Done!"
 EOF
