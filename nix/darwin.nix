@@ -67,6 +67,11 @@
   # Allow Touch ID for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  # Fonts (system-wide so all apps like Cursor/Ghostty can find them)
+  fonts.packages = with pkgs; [
+    nerd-fonts.d2coding
+  ];
+
   # Homebrew (managed declaratively)
   homebrew = {
     enable = true;
