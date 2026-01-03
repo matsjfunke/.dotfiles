@@ -42,7 +42,7 @@ in
     wget
   ];
 
-  # Launchd agents (macOS scheduled tasks)
+  # Launchd agents (macOS cron jobs)
   launchd.agents.eye-reminder = {
     enable = true;
     config = {
@@ -52,4 +52,16 @@ in
       RunAtLoad = true;
     };
   };
+
+  launchd.agents.dotfiles-sync = {
+  enable = true;
+  config = {
+    Label = "com.matsfunke.dotfiles-sync";
+    ProgramArguments = [ "/bin/sh" "-c" "cd ~/.dotfiles && git pull --rebase" ];
+    StartCalendarInterval = [{ Hour = 8; Minute = 0; }];  # Daily at 8:00 AM
+    StandardOutPath = "/tmp/dotfiles-sync.log";
+    StandardErrorPath = "/tmp/dotfiles-sync.error.log";
+  };
+};
+
 }
