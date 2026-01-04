@@ -36,9 +36,9 @@ git_prompt_info() {
         local branch_name="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
 
         if [[ -n "$git_status" ]]; then
-            echo -n "%F{019}  ( %F{009}${branch_name} %F{019}) %F{011}X%f "
+            echo -n "%F{019} ( %F{009}${branch_name} %F{019}) %F{011}X%f "
         else
-            echo -n "%F{019}  ( %F{009}${branch_name} %F{019}) "
+            echo -n "%F{019} ( %F{009}${branch_name} %F{019}) "
         fi
     fi
 }
@@ -46,7 +46,7 @@ git_prompt_info() {
 # with apple icon
 # PS1='%F{010}   %F{014}   %~ %(!.#.)  $(git_prompt_info)%f%k'
 # without apple icon
-PS1='%F{014}   %~ %(!.#.)  $(git_prompt_info)%f%k'
+PS1='%F{014}   %~ %(!.#.) $(git_prompt_info)%f%k'
 
 # Functions
 google_search() {
