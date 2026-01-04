@@ -121,6 +121,7 @@ alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 # alias ls="colorls" # requires sudo gem install colorls 
 alias tree="tree -I 'env|venv|node_modules|__pycache__'"
 alias ngrok-3333="ngrok http --domain=optimal-meet-scorpion.ngrok-free.app 3333"
+alias rbnix="sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsfunke"
 
 # Plugins 
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
