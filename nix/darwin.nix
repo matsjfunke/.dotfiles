@@ -109,6 +109,8 @@
       "1password"
       "spotify"
       "slack"
+      "linear-linear"
+      "postman"
     ];
   };
 
