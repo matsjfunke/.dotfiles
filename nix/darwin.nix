@@ -105,6 +105,10 @@
       "karabiner-elements"
       "ngrok"
       "raycast"
+      "cursor"
+      "1password"
+      "spotify"
+      "slack"
     ];
   };
 

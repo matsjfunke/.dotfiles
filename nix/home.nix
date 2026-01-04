@@ -23,6 +23,7 @@ in
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/nvim";
     ".config/htop/htoprc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/htop/htoprc";
     ".config/karabiner/karabiner.json".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/karabiner/karabiner.json";
+    "Library/Application Support/com.mitchellh.ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/ghostty/config";
   };
 
   # CLI tools (cross-platform, managed by Nix)

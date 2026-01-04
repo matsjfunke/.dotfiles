@@ -1,0 +1,8 @@
+# This is the configuration file for Ghostty.
+ 
+keybind = shift+enter=text:\x1b\r
+theme = "Kanagawa Wave"
+
+# Font settings
+font-family = "D2CodingLigature Nerd Font Mono"
+font-size = 15
