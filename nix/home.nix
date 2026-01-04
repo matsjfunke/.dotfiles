@@ -63,5 +63,4 @@ in
     StandardErrorPath = "/tmp/dotfiles-sync.error.log";
   };
 };
-
 }

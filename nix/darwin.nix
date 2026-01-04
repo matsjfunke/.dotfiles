@@ -58,6 +58,9 @@
       askForPassword = true;
       askForPasswordDelay = 0;
     };
+
+    # No widgets on desktop
+    WindowManager.StandardHideWidgets = true;
   };
 
   # Sleep settings
