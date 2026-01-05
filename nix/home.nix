@@ -50,8 +50,6 @@ in
     tree-sitter
     nodejs_22
     ngrok
-    postman
-    raycast
   ];
 
   # Launchd agents (macOS cron jobs)

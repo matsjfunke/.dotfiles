@@ -33,8 +33,6 @@
             # Allow unfree packages (moved here because useGlobalPkgs is enabled)
             nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
               "ngrok"
-              "postman"
-              "raycast"
               "terraform"
             ];
           }

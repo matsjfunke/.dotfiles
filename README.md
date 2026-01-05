@@ -30,17 +30,21 @@ More details in the [Nix README](nix/README.md)
 ## Setup Mac with Nix
 
 ```bash
-# 1. Clone dotfiles
-git clone https://github.com/matsjfunke/dotfiles.git ~/.dotfiles
-
-# 2. Install Homebrew
+# 1. Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# 3. Install Nix (Determinate Systems)
+# 2. Install Nix (Determinate Systems) - restart terminal after!
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+
+# 3. Clone dotfiles
+git clone https://github.com/matsjfunke/dotfiles.git ~/.dotfiles
 
 # 4. Apply configuration (installs brews/casks, CLI tools, creates symlinks)
 sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsjfunke
+
+# After setup, use these aliases:
+# bnix  - build config (test without applying)
+# rbnix - rebuild and switch (apply changes)
 ```
 
 ## Git Config

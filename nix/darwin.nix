@@ -93,6 +93,8 @@
       "ghostty"
       "karabiner-elements"
       "linear-linear"
+      "postman"
+      "raycast"
       "slack"
       "spotify"
     ];
