@@ -1,12 +1,12 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
-  homeDir = "/Users/matsfunke";
+  homeDir = "/Users/matsjfunke";
   dotfilesDir = "${homeDir}/.dotfiles";
 in
 {
-  home.username = "matsfunke";
-  home.homeDirectory = homeDir;
+  home.username = lib.mkDefault "matsjfunke";
+  home.homeDirectory = lib.mkDefault homeDir;
 
   # Home Manager release version
   home.stateVersion = "24.11";
@@ -41,13 +41,24 @@ in
     rsync
     tree
     wget
+    doppler
+    gemini-cli
+    ollama
+    openvpn
+    postgresql_15
+    python312
+    tree-sitter
+    nodejs_22
+    ngrok
+    postman
+    raycast
   ];
 
   # Launchd agents (macOS cron jobs)
   launchd.agents.eye-reminder = {
     enable = true;
     config = {
-      Label = "com.matsfunke.eye-reminder";
+      Label = "com.matsjfunke.eye-reminder";
       ProgramArguments = [ "${dotfilesDir}/20-20-20/eye-reminder.sh" ];
       StartInterval = 1200;  # 20 minutes in seconds
       RunAtLoad = true;
@@ -57,7 +68,7 @@ in
   launchd.agents.dotfiles-sync = {
   enable = true;
   config = {
-    Label = "com.matsfunke.dotfiles-sync";
+    Label = "com.matsjfunke.dotfiles-sync";
     ProgramArguments = [ "/bin/sh" "-c" "cd ~/.dotfiles && git pull --rebase" ];
     StartCalendarInterval = [{ Hour = 8; Minute = 0; }];  # Daily at 8:00 AM
     StandardOutPath = "/tmp/dotfiles-sync.log";

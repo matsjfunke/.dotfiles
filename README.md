@@ -40,7 +40,7 @@ git clone https://github.com/matsjfunke/dotfiles.git ~/.dotfiles
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 
 # 4. Apply configuration (installs brews/casks, CLI tools, creates symlinks)
-sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsfunke
+sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsjfunke
 ```
 
 ## Git Config

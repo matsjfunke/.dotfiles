@@ -4,7 +4,7 @@ export LANG=en_US.UTF-8
 
 # PATH
 # Nix
-[ -d '/nix' ] && export PATH="$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
+[ -d '/nix' ] && export PATH="/run/current-system/sw/bin:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
 
 # Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
@@ -121,7 +121,7 @@ alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 # alias ls="colorls" # requires sudo gem install colorls 
 alias tree="tree -I 'env|venv|node_modules|__pycache__'"
 alias ngrok-3333="ngrok http --domain=optimal-meet-scorpion.ngrok-free.app 3333"
-alias rbnix="sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsfunke"
+alias rbnix="sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsjfunke"
 
 # Plugins 
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

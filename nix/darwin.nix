@@ -2,7 +2,7 @@
 
 {
   # Required for user-specific system.defaults
-  system.primaryUser = "matsfunke";
+  system.primaryUser = "matsjfunke";
 
   # Let Determinate manage Nix (not nix-darwin)
   nix.enable = false;
@@ -75,7 +75,7 @@
     nerd-fonts.d2coding
   ];
 
-  # Homebrew (managed declaratively)
+  # Homebrew (only for apps not available in nixpkgs)
   homebrew = {
     enable = true;
     onActivation = {
@@ -83,34 +83,18 @@
       autoUpdate = false; # Don't auto-update on rebuild
     };
 
-    taps = [
-      "homebrew/bundle"
-      "homebrew/services"
-    ];
-
-    brews = [
-      "gemini-cli"
-      "ollama"
-      "openvpn"
-      "postgresql@15"
-      "python@3.12"
-    ];
-
     casks = [
+      "1password"
       "alchemy"
       "beekeeper-studio"
+      "cursor"
       "docker-desktop"
       "emdash"
       "ghostty"
       "karabiner-elements"
-      "ngrok"
-      "raycast"
-      "cursor"
-      "1password"
-      "spotify"
-      "slack"
       "linear-linear"
-      "postman"
+      "slack"
+      "spotify"
     ];
   };
 

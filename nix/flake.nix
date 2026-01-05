@@ -1,5 +1,5 @@
 {
-  description = "Nix configuration for matsfunke";
+  description = "Nix configuration for matsjfunke";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -18,16 +18,25 @@
       system = "aarch64-darwin";
     in
     {
-      darwinConfigurations."matsfunke" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."matsjfunke" = nix-darwin.lib.darwinSystem {
         inherit system;
         modules = [
           ./darwin.nix
           home-manager.darwinModules.home-manager
           {
-            users.users.matsfunke.home = "/Users/matsfunke";
+            users.users.matsjfunke.home = "/Users/matsjfunke";
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.matsfunke = import ./home.nix;
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.matsjfunke = import ./home.nix;
+
+            # Allow unfree packages (moved here because useGlobalPkgs is enabled)
+            nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+              "ngrok"
+              "postman"
+              "raycast"
+              "terraform"
+            ];
           }
         ];
       };

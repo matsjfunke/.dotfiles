@@ -63,16 +63,16 @@ casks = [
 ### Apply changes
 
 ```bash
-sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsfunke
+sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsjfunke
 ```
 
 ## Quick Commands
 
-| Action                  | Command                                                        |
-| ----------------------- | -------------------------------------------------------------- |
-| Apply config changes    | `sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsfunke` |
-| Update all flake inputs | `nix flake update --flake ~/.dotfiles/nix`                     |
-| Search Nix packages     | `nix search nixpkgs <name>`                                    |
-| Search Homebrew         | `brew search <name>`                                           |
-| Try package temporarily | `nix shell nixpkgs#cowsay`                                     |
-| Run package once        | `nix run nixpkgs#neofetch`                                     |
+| Action                  | Command                                                         |
+| ----------------------- | --------------------------------------------------------------- |
+| Apply config changes    | `sudo darwin-rebuild switch --flake ~/.dotfiles/nix#matsjfunke` |
+| Update all flake inputs | `nix flake update --flake ~/.dotfiles/nix`                      |
+| Search Nix packages     | `nix search nixpkgs <name>`                                     |
+| Search Homebrew         | `brew search <name>`                                            |
+| Try package temporarily | `nix shell nixpkgs#cowsay`                                      |
+| Run package once        | `nix run nixpkgs#neofetch`                                      |
