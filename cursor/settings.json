@@ -59,7 +59,8 @@
     {
       "before": ["g", "d"],
       "commands": ["editor.action.revealDefinition"] // Go to definition with gd
-    }
+    },
+    { "before": ["g", "b"], "commands": ["gitlens.toggleFileBlame"] } // Toggle git blame
   ],
   "vim.visualModeKeyBindings": [
     // Stay in visual mode while indenting
