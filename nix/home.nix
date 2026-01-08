@@ -51,6 +51,7 @@ in
     nodejs_22
     ngrok
     terraform
+    pnpm
   ];
 
   # Launchd agents (macOS cron jobs)
