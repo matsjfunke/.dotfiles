@@ -50,18 +50,19 @@ in
     tree-sitter
     nodejs_22
     ngrok
+    terraform
   ];
 
   # Launchd agents (macOS cron jobs)
-  launchd.agents.eye-reminder = {
-    enable = true;
-    config = {
-      Label = "com.matsjfunke.eye-reminder";
-      ProgramArguments = [ "${dotfilesDir}/20-20-20/eye-reminder.sh" ];
-      StartInterval = 1200;  # 20 minutes in seconds
-      RunAtLoad = true;
-    };
-  };
+  # launchd.agents.eye-reminder = {
+  #   enable = true;
+  #   config = {
+  #     Label = "com.matsjfunke.eye-reminder";
+  #     ProgramArguments = [ "${dotfilesDir}/20-20-20/eye-reminder.sh" ];
+  #     StartInterval = 1200;  # 20 minutes in seconds
+  #     RunAtLoad = true;
+  #   };
+  # };
 
   launchd.agents.dotfiles-sync = {
   enable = true;

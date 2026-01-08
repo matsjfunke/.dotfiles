@@ -80,7 +80,7 @@
     enable = true;
     onActivation = {
       cleanup = "zap"; # Remove unlisted packages
-      autoUpdate = false; # Don't auto-update on rebuild
+      autoUpdate = true; # auto-update on rebuild
     };
 
     casks = [
