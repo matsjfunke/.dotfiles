@@ -52,6 +52,8 @@ in
     ngrok
     terraform
     pnpm
+    graphicsmagick
+    ghostscript
   ];
 
   # Launchd agents (macOS cron jobs)
