@@ -19,7 +19,7 @@
       show-process-indicators = true;
       wvous-tl-corner = 1;  # Top-left: disabled
       wvous-tr-corner = 2;  # Top-right: Mission Control
-      wvous-bl-corner = 13; # Bottom-left: Lock Screen
+      wvous-bl-corner = 1; # Bottom-left: Lock Screen
       wvous-br-corner = 1;  # Bottom-right: disabled
     };
 
