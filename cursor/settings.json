@@ -60,7 +60,8 @@
       "before": ["g", "d"],
       "commands": ["editor.action.revealDefinition"] // Go to definition with gd
     },
-    { "before": ["g", "b"], "commands": ["gitlens.toggleFileBlame"] } // Toggle git blame
+    { "before": ["g", "b"], "commands": ["gitlens.toggleFileBlame"] }, // Toggle git blame
+    { "before": ["t", "t"], "commands": ["typescript.restartTsServer"] } // Restart TS server with tt
   ],
   "vim.visualModeKeyBindings": [
     // Stay in visual mode while indenting
@@ -93,5 +94,6 @@
   "workbench.editor.enablePreview": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "diffEditor.ignoreTrimWhitespace": false
 }
