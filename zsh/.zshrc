@@ -48,14 +48,45 @@ google_search() {
   open "https://www.google.com/search?q=${query// /+}"
 }
 
-# git worktree add
+# git worktree add 
+# Creates a new worktree for a branch (creates branch from main if it doesn't exist, or checks out existing local branch; auto-switches main worktree to 'main' if target branch is already checked out there)
 wta() {
   if [ -z "$1" ]; then
     echo "Usage: wta <branch-name>"
     return 1
   fi
-  git worktree add -b "$1" "../$1" main && cd "../$1" 
-  echo "Successfully created worktree & branch '../$1' and switched to it"
+  
+  # Check if branch already exists locally
+  if git show-ref --verify --quiet refs/heads/"$1"; then
+    # Check if branch is already checked out in another worktree
+    if git worktree list | grep -q "\[$1\]"; then
+      # Get the main worktree path (first entry)
+      main_worktree=$(git worktree list | head -n 1 | awk '{print $1}')
+      
+      # Check if it's checked out in the main worktree
+      if git worktree list | head -n 1 | grep -q "\[$1\]"; then
+        echo "Branch '$1' is checked out in main worktree. Switching main to 'main' branch..."
+        # Save current directory
+        original_dir=$(pwd)
+        # Switch main worktree to main branch
+        cd "$main_worktree" && git checkout main
+        # Return to original directory
+        cd "$original_dir"
+      else
+        echo "Error: Branch '$1' is already checked out in another worktree"
+        echo "Current worktrees:"
+        git worktree list
+        return 1
+      fi
+    fi
+    # Branch exists locally and not checked out elsewhere, just check it out
+    git worktree add "../$1" "$1" && cd "../$1"
+    echo "Successfully created worktree '../$1' from existing branch and switched to it"
+  else
+    # Branch doesn't exist, create it from main
+    git worktree add -b "$1" "../$1" main && cd "../$1"
+    echo "Successfully created worktree & branch '../$1' and switched to it"
+  fi
 }
 
 # git worktree delete
