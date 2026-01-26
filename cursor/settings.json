@@ -92,7 +92,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "workbench.editor.enablePreview": false,
+  "audioCues.enabled": "off",
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "accessibility.signalOptions.volume": 0,
 }
