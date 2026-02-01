@@ -41,21 +41,27 @@
 [branch]
     sort = -committerdate # Sort branches by most recent commit (newest first)
 [alias]
+    # Stash operations
     staash = stash --all # Stash everything including untracked files
-    aadd = add . # add everything
     sm = stash push -u -m # Stash with message
+    # Navigation & switching
     sw = switch # Switch branches
     swc = switch -c # Create and switch to new branch
+    # Status & information
     st = status -s # Consice status output
     lg = log --oneline --graph --decorate --all # Pretty log with graph and all branches
-    p = pull # Simple pull shorthand
-    ub = !git fetch origin && git reset --hard origin/main # Update branch to match origin/main
+    wtl = worktree list # List all worktrees
+    conflicts = diff --name-only --diff-filter=U # show the conflicting files
+    # Commit operations
     uncommit = reset --soft HEAD~1 # Undo last commit but keep changes staged
     lfg = "!f() { git add . && git commit -m \"$1\" && git push; }; f" # LETS F*CKING GO: Add, commit, push in one command
-    pr = "!f() { gh pr create --title \"$1\" --body \"\" --fill | tee /dev/tty | grep -oE \"[0-9]+$\" | xargs -I {} gh pr merge {} --auto --merge; }; f"  # Create PR and auto-merge
-    wtl = worktree list # list worktrees
-    mwr = "!gh pr list --head $(git branch --show-current) --json number --jq '.[0].number' | xargs -I {} gh pr merge {} --auto --merge" # merge when ready fr current pr of branch
-    conflicts = diff --name-only --diff-filter=U
-    sync = !git fetch origin && git rebase origin/main # sync branch to remote main
+    # Keeping up with remote / Rebasing utils
+    p = pull # Simple pull shorthand (will rebase by default)
+    pm = pull --no-rebase origin main # pull main with merge
+    sync = !git fetch origin && git rebase origin/main # sync branch to remote main (will rebase by default)
     rbc = !git add -A && GIT_EDITOR=true git rebase --continue # continue rebase (with all changes and no commit edit)
-    rba = rebase --abort 
+    rba = rebase --abort
+    # GitHub integration
+    pr = "!f() { gh pr create --title \"$1\" --body \"\" --fill | tee /dev/tty | grep -oE \"[0-9]+$\" | xargs -I {} gh pr merge {} --auto --merge; }; f"  # Create PR (merge when ready)
+    dpr = "!f() { gh pr create --draft --title \"$1\" --body \"\" --fill; }; f" # Open draft PR
+    mwr = "!gh pr list --head $(git branch --show-current) --json number --jq '.[0].number' | xargs -I {} gh pr merge {} --auto --merge" # merge when ready for current pr of branch
