@@ -61,6 +61,11 @@
     "command": "workbench.action.terminal.focusNext",
     "when": "terminalFocus"
   },
+  // Quick Fix (e.g. add missing import)
+  {
+    "key": "cmd+i",
+    "command": "editor.action.quickFix"
+  },
   // Cursor
   {
     "key": "cmd+l",
