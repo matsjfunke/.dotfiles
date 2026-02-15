@@ -16,21 +16,20 @@
   outputs = { nixpkgs, nix-darwin, home-manager, ... }:
     let
       system = "aarch64-darwin";
-    in
-    {
-      darwinConfigurations."matsjfunke" = nix-darwin.lib.darwinSystem {
+      mkDarwinConfig = username: nix-darwin.lib.darwinSystem {
         inherit system;
+        specialArgs = { inherit username; };
         modules = [
           ./darwin.nix
           home-manager.darwinModules.home-manager
           {
-            users.users.matsjfunke.home = "/Users/matsjfunke";
+            users.users.${username}.home = "/Users/${username}";
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.matsjfunke = import ./home.nix;
+            home-manager.users.${username} = import ./home.nix;
+            home-manager.extraSpecialArgs = { inherit username; };
 
-            # Allow unfree packages (moved here because useGlobalPkgs is enabled)
             nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
               "ngrok"
               "terraform"
@@ -38,5 +37,9 @@
           }
         ];
       };
+    in
+    {
+      darwinConfigurations."matsjfunke" = mkDarwinConfig "matsjfunke";  # work
+      darwinConfigurations."matsfunke" = mkDarwinConfig "matsfunke";    # private
     };
 }

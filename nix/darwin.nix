@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
   # Required for user-specific system.defaults
-  system.primaryUser = "matsjfunke";
+  system.primaryUser = username;
 
   # Let Determinate manage Nix (not nix-darwin)
   nix.enable = false;
