@@ -54,6 +54,7 @@ in
     pnpm
     graphicsmagick
     ghostscript
+    nmap
   ];
 
   # Launchd agents (macOS cron jobs)
