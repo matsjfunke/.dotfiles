@@ -77,6 +77,14 @@
                 },
                 "to": [{ "shell_command": "open -a 'Postman'" }],
                 "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "n",
+                  "modifiers": { "mandatory": ["control"] }
+                },
+                "to": [{ "shell_command": "open -a 'Notes'" }],
+                "type": "basic"
               }
             ]
           },
@@ -155,7 +163,12 @@
                   "key_code": "grave_accent_and_tilde",
                   "modifiers": { "mandatory": ["left_shift"] }
                 },
-                "to": [{ "key_code": "non_us_backslash", "modifiers": ["left_shift"] }],
+                "to": [
+                  {
+                    "key_code": "non_us_backslash",
+                    "modifiers": ["left_shift"]
+                  }
+                ],
                 "type": "basic"
               }
             ]

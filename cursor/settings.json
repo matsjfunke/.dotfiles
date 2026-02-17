@@ -96,5 +96,5 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "accessibility.signalOptions.volume": 0,
+  "accessibility.signalOptions.volume": 0
 }
