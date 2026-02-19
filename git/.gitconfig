@@ -41,9 +41,10 @@
 [branch]
     sort = -committerdate # Sort branches by most recent commit (newest first)
 [alias]
-    # Stash operations
+    # Save or discard uncommitted changes
     staash = stash --all # Stash everything including untracked files
     sm = stash push -u -m # Stash with message
+    clear = "!git reset --hard && git clean -fd" # complete reset to the last commit state (irreversible)
     # Navigation & switching
     sw = switch # Switch branches
     swc = switch -c # Create and switch to new branch
