@@ -83,6 +83,10 @@
       autoUpdate = true; # auto-update on rebuild
     };
 
+    brews = [
+      "openssl@3"
+    ];
+
     casks = [
       "1password"
       "alchemy"
