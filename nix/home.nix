@@ -77,5 +77,16 @@ in
     StandardOutPath = "/tmp/dotfiles-sync.log";
     StandardErrorPath = "/tmp/dotfiles-sync.error.log";
   };
+
+  launchd.agents.cleanup = {
+  enable = true;
+  config = {
+    Label = "com.matsjfunke.cleanup";
+    # Delete files & dirs in Downloads, Desktop & Trash older than 60 minutes
+    ProgramArguments = [ "/bin/sh" "-c" "find ~/Downloads ~/Desktop ~/.Trash -mindepth 1 -mmin +60 -exec rm -rf {} + 2>/dev/null || true" ];
+    StartCalendarInterval = [{ Hour = 2; Minute = 0; }];  # Daily at 2:00 AM
+    StandardOutPath = "/tmp/cleanup.log";
+    StandardErrorPath = "/tmp/cleanup.error.log";
+  };
 };
 }
