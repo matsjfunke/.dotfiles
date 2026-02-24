@@ -1,4 +1,10 @@
-{ config, pkgs, lib, username, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  username,
+  ...
+}:
 
 let
   homeDir = "/Users/${username}";
@@ -22,15 +28,17 @@ in
     ".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/wezterm/.wezterm.lua";
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/nvim";
     ".config/htop/htoprc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/htop/htoprc";
-    ".config/karabiner/karabiner.json".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/karabiner/karabiner.json";
-    "Library/Application Support/com.mitchellh.ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/ghostty/config";
+    ".config/karabiner/karabiner.json".source =
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/karabiner/karabiner.json";
+    "Library/Application Support/com.mitchellh.ghostty/config".source =
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/ghostty/config";
   };
 
   # CLI tools (cross-platform, managed by Nix)
   home.packages = with pkgs; [
     bat
     coreutils
-    delta       # git-delta
+    delta # git-delta
     fastfetch
     gh
     git-lfs
@@ -51,6 +59,7 @@ in
     nodejs_22
     ngrok
     terraform
+    nixfmt
     pnpm
     graphicsmagick
     ghostscript
@@ -69,24 +78,45 @@ in
   # };
 
   launchd.agents.dotfiles-sync = {
-  enable = true;
-  config = {
-    Label = "com.matsjfunke.dotfiles-sync";
-    ProgramArguments = [ "/bin/sh" "-c" "cd ~/.dotfiles && git pull --rebase" ];
-    StartCalendarInterval = [{ Hour = 8; Minute = 0; }];  # Daily at 8:00 AM
-    StandardOutPath = "/tmp/dotfiles-sync.log";
-    StandardErrorPath = "/tmp/dotfiles-sync.error.log";
+    enable = true;
+    config = {
+      Label = "com.matsjfunke.dotfiles-sync";
+      ProgramArguments = [
+        "/bin/sh"
+        "-c"
+        "cd ~/.dotfiles && git pull --rebase"
+      ];
+      # Daily at 8:00 AM
+      StartCalendarInterval = [
+        {
+          Hour = 8;
+          Minute = 0;
+        }
+      ];
+      StandardOutPath = "/tmp/dotfiles-sync.log";
+      StandardErrorPath = "/tmp/dotfiles-sync.error.log";
+    };
   };
 
   launchd.agents.cleanup = {
-  enable = true;
-  config = {
-    Label = "com.matsjfunke.cleanup";
-    # Delete files & dirs in Downloads, Desktop & Trash older than 60 minutes
-    ProgramArguments = [ "/bin/sh" "-c" "find ~/Downloads ~/Desktop ~/.Trash -mindepth 1 -mmin +60 -exec rm -rf {} + 2>/dev/null || true" ];
-    StartCalendarInterval = [{ Hour = 2; Minute = 0; }];  # Daily at 2:00 AM
-    StandardOutPath = "/tmp/cleanup.log";
-    StandardErrorPath = "/tmp/cleanup.error.log";
+    enable = true;
+    config = {
+      Label = "com.matsjfunke.cleanup";
+      # Delete files & dirs in Downloads, Desktop & Trash older than 60 minutes
+      ProgramArguments = [
+        "/bin/sh"
+        "-c"
+        "find ~/Downloads ~/Desktop ~/.Trash -mindepth 1 -mmin +60 -exec rm -rf {} + 2>/dev/null || true"
+      ];
+      # Daily at 2:00 AM
+      StartCalendarInterval = [
+        {
+          Hour = 2;
+          Minute = 0;
+        }
+      ];
+      StandardOutPath = "/tmp/cleanup.log";
+      StandardErrorPath = "/tmp/cleanup.error.log";
+    };
   };
-};
 }

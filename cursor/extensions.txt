@@ -18,3 +18,4 @@ unifiedjs.vscode-mdx
 usernamehw.errorlens
 vscodevim.vim
 yoavbls.pretty-ts-errors
+jnoortheen.nix-ide
