@@ -149,6 +149,7 @@ alias ngrok-3333="ngrok http --domain=optimal-meet-scorpion.ngrok-free.app 3333"
 alias bnix="sudo darwin-rebuild build --flake ~/.dotfiles/nix#\$USER"
 alias rbnix="sudo darwin-rebuild switch --flake ~/.dotfiles/nix#\$USER"
 alias whosonwifi='nmap -sn $(ipconfig getifaddr en0 | sed "s/[0-9]*$/0\/24/")'
+alias nixagents="launchctl list | grep matsjfunke" # list all nix launchd agents
 
 # Plugins 
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
