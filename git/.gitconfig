@@ -48,6 +48,7 @@
     # Navigation & switching
     sw = switch # Switch branches
     swc = switch -c # Create and switch to new branch
+    swb = switch - # Switch to previous branch
     # Status & information
     st = status -s # Consice status output
     lg = log --oneline --graph --decorate --all # Pretty log with graph and all branches
