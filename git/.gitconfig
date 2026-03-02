@@ -55,6 +55,7 @@
     conflicts = diff --name-only --diff-filter=U # show the conflicting files
     # Commit operations
     uncommit = reset --soft HEAD~1 # Undo last commit but keep changes staged
+    rh = reset --hard # reset head hard to commit discarding all changes
     lfg = "!f() { git add . && git commit -m \"$1\" && git push; }; f" # LETS F*CKING GO: Add, commit, push in one command
     # Keeping up with remote / Rebasing utils
     p = pull # Simple pull shorthand (will rebase by default)
