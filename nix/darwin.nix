@@ -101,6 +101,7 @@
       "raycast"
       "slack"
       "spotify"
+      "granola"
     ];
   };
 

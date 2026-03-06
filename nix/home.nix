@@ -59,6 +59,7 @@ in
     nodejs_22
     ngrok
     terraform
+    terragrunt
     nixfmt
     pnpm
     graphicsmagick
