@@ -87,13 +87,14 @@ in
         "-c"
         "cd ~/.dotfiles && git pull --rebase"
       ];
-      # Daily at 8:00 AM
+      # Daily at 8:00 AM, and on login/wake
       StartCalendarInterval = [
         {
           Hour = 8;
           Minute = 0;
         }
       ];
+      RunAtLoad = true;
       StandardOutPath = "/tmp/dotfiles-sync.log";
       StandardErrorPath = "/tmp/dotfiles-sync.error.log";
     };
@@ -109,13 +110,14 @@ in
         "-c"
         "find ~/Downloads ~/Desktop ~/.Trash -mindepth 1 -mmin +60 -exec rm -rf {} + 2>/dev/null || true"
       ];
-      # Daily at 2:00 AM
+      # Daily at 2:00 AM, and on login/wake
       StartCalendarInterval = [
         {
           Hour = 2;
           Minute = 0;
         }
       ];
+      RunAtLoad = true;
       StandardOutPath = "/tmp/cleanup.log";
       StandardErrorPath = "/tmp/cleanup.error.log";
     };
