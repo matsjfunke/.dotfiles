@@ -68,3 +68,5 @@
     pr = "!f() { gh pr create --title \"$1\" --body \"\" --fill | tee /dev/tty | grep -oE \"[0-9]+$\" | xargs -I {} gh pr merge {} --auto --merge; }; f"  # Create PR (merge when ready)
     dpr = "!f() { gh pr create --draft --title \"$1\" --body \"\" --fill; }; f" # Open draft PR
     mwr = "!gh pr list --head $(git branch --show-current) --json number --jq '.[0].number' | xargs -I {} gh pr merge {} --auto --merge" # merge when ready for current pr of branch
+    bc = diff --name-only main...HEAD # show files changed on current branch
+    bcd = diff main...HEAD # show full diff of changes on current branch
