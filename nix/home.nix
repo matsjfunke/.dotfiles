@@ -78,6 +78,19 @@ in
   #   };
   # };
 
+  # Login items (apps that open on startup)
+  home.activation.loginItems = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    run /usr/bin/osascript <<'EOF'
+      tell application "System Events"
+        delete every login item
+        set appPaths to {"/Applications/Ghostty.app", "/Applications/Raycast.app", "/Applications/Docker.app", "/Applications/Karabiner-Elements.app", "/Applications/Reminders.app", "/Applications/1Password.app", "/Applications/Granola.app"}
+        repeat with appPath in appPaths
+          make login item at end with properties {path:appPath, hidden:false}
+        end repeat
+      end tell
+EOF
+  '';
+
   launchd.agents.dotfiles-sync = {
     enable = true;
     config = {
