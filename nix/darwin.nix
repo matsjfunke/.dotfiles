@@ -97,7 +97,7 @@
       "ghostty"
       "karabiner-elements"
       "linear-linear"
-      "postman"
+      "bruno"
       "raycast"
       "slack"
       "spotify"
