@@ -32,6 +32,10 @@ in
       config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/karabiner/karabiner.json";
     "Library/Application Support/com.mitchellh.ghostty/config".source =
       config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/ghostty/config";
+    ".cursor/skills".source =
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/skills";
+    ".claude/skills".source =
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/skills";
   };
 
   # CLI tools (cross-platform, managed by Nix)
