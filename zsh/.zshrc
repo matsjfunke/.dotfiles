@@ -147,6 +147,7 @@ alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 alias tree="tree -I 'env|venv|node_modules|__pycache__'"
 alias ngrok-3333="ngrok http --domain=optimal-meet-scorpion.ngrok-free.app 3333"
 alias dp="doppler secrets set --config dev_mats"
+alias dps="doppler secrets --config dev_mats"
 alias bnix="sudo darwin-rebuild build --flake ~/.dotfiles/nix#\$USER"
 alias rbnix="sudo darwin-rebuild switch --flake ~/.dotfiles/nix#\$USER"
 alias whosonwifi='nmap -sn $(ipconfig getifaddr en0 | sed "s/[0-9]*$/0\/24/")'
