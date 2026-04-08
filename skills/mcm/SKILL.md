@@ -12,6 +12,7 @@ Produce a single-line conventional commit message and run it with `git lfg`.
 - Do not include any scope or ticket in the commit title.
 - Keep description concise and technical, explicitly stating what was changed.
 - Mention key technical implementation details (for example endpoint, env var, module, migration, guard, fallback).
+- Ensure the message covers ALL changed, added, and deleted files — not just the code diff. Check `git status` for untracked/new files.
 - No trailing period.
 
 ## Co-Author
