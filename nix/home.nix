@@ -69,6 +69,7 @@ in
     graphicsmagick
     ghostscript
     nmap
+    azure-cli
   ];
 
   # Launchd agents (macOS cron jobs)
