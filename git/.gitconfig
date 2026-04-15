@@ -70,3 +70,6 @@
     mwr = "!gh pr list --head $(git branch --show-current) --json number --jq '.[0].number' | xargs -I {} gh pr merge {} --auto --merge" # merge when ready for current pr of branch
     bc = diff --name-only main...HEAD # show files changed on current branch
     bcd = diff main...HEAD # show full diff of changes on current branch
+    # Submodule operations
+    smsync = submodule update --init --recursive # Sync submodule content after pulling main repo changes
+    smlatest = submodule update --init --recursive --remote # Update submodule(s) to latest remote commit (optionally pass a path)
