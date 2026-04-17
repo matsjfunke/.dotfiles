@@ -70,6 +70,7 @@ in
     ghostscript
     nmap
     azure-cli
+    hcloud
   ];
 
   # Launchd agents (macOS cron jobs)
