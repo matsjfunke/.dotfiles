@@ -153,6 +153,7 @@ alias bnix="sudo darwin-rebuild build --flake ~/.dotfiles/nix#\$USER"
 alias rbnix="sudo darwin-rebuild switch --flake ~/.dotfiles/nix#\$USER"
 alias whosonwifi='nmap -sn $(ipconfig getifaddr en0 | sed "s/[0-9]*$/0\/24/")'
 alias nixagents="launchctl list | grep matsjfunke" # list all nix launchd agents
+alias gcb="git rev-parse --abbrev-ref HEAD | pbcopy && echo \"Copied: $(git rev-parse --abbrev-ref HEAD)\""
 
 # Plugins 
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
