@@ -40,11 +40,7 @@
     "key": "ctrl+d",
     "when": "editorTextFocus"
   },
-  // Focus Editor
-  {
-    "key": "cmd+h",
-    "command": "workbench.action.focusActiveEditorGroup"
-  },
+  // Focus Editor with ES
   // Terminal
   {
     "key": "cmd+n",
