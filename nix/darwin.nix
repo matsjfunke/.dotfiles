@@ -80,7 +80,8 @@
     enable = true;
     onActivation = {
       cleanup = "zap"; # Remove unlisted packages
-      autoUpdate = true; # auto-update on rebuild
+      autoUpdate = true;
+      upgrade = true;
     };
 
     taps = [
