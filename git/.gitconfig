@@ -52,6 +52,7 @@
     # Status & information
     st = status -s # Consice status output
     lg = log --oneline --graph --decorate --all # Pretty log with graph and all branches
+    lgb = log --pretty=format:"%C(yellow)%h%Creset%x20%C(blue)%an%Creset%x20%s" main..HEAD # Oneline log for current branch: hash, author, message
     wtl = worktree list # List all worktrees
     conflicts = diff --name-only --diff-filter=U # show the conflicting files
     # Commit operations
