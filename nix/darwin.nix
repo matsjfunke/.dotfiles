@@ -83,8 +83,13 @@
       autoUpdate = true; # auto-update on rebuild
     };
 
+    taps = [
+      "databricks/tap"
+    ];
+
     brews = [
       "openssl@3"
+      "databricks/tap/databricks"
     ];
 
     casks = [
@@ -96,7 +101,7 @@
       "emdash"
       "ghostty"
       "karabiner-elements"
-      "linear-linear"
+      "linear"
       "bruno"
       "raycast"
       "slack"

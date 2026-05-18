@@ -71,6 +71,9 @@ in
     nmap
     azure-cli
     hcloud
+    uv
+    go-task
+    check
   ];
 
   # Launchd agents (macOS cron jobs)
