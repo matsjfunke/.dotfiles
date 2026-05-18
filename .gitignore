@@ -9,3 +9,5 @@ __pycache__/
 
 node_modules/
 
+skills/ldpr/
+skills/local-db-query/
