@@ -60,6 +60,7 @@
     rh = reset --hard # reset head hard to commit discarding all changes
     lfg = "!f() { git add . && git commit -m \"$1\" ${2:+-m \"$2\"} && git push; }; f" # LETS F*CKING GO: Add, commit, push in one command
     # Keeping up with remote / Rebasing utils
+    pfl = push --force-with-lease
     p = pull # Simple pull shorthand (will rebase by default)
     pm = pull --no-rebase origin main # pull main with merge
     sync = !git fetch origin && git rebase origin/main # sync branch to remote main (will rebase by default)
