@@ -172,3 +172,4 @@ export UV_SYSTEM_CERTS=true
 # aikido-endpoint-pip-uv-legacy-start
 export UV_NATIVE_TLS=true
 # aikido-endpoint-pip-uv-legacy-end
+export NODE_EXTRA_CA_CERTS="$HOME/.aikido-root-ca.pem"
