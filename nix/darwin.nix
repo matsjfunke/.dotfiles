@@ -79,7 +79,7 @@
   homebrew = {
     enable = true;
     onActivation = {
-      cleanup = "zap"; # Remove unlisted packages
+      cleanup = "none"; # TODO: restore "zap" once nix-darwin PR #1774 merges (new Homebrew needs --force-cleanup; not in mainline yet)
       autoUpdate = true;
       upgrade = true;
     };
