@@ -4,6 +4,82 @@
       "complex_modifications": {
         "rules": [
           {
+            "description": "Chrome bookmarks: Option+N focus-if-open (Chrome only)",
+            "manipulators": [
+              {
+                "from": { "key_code": "1", "modifiers": { "mandatory": ["option"] } },
+                "to": [{ "shell_command": "\"$HOME/.dotfiles/karabiner/chrome-goto.sh\" 'app.langdock.com/chat' 'https://app.langdock.com/chat'" }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "2", "modifiers": { "mandatory": ["option"] } },
+                "to": [{ "shell_command": "\"$HOME/.dotfiles/karabiner/chrome-goto.sh\" 'localhost:3000' 'http://localhost:3000/chat'" }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "3", "modifiers": { "mandatory": ["option"] } },
+                "to": [{ "shell_command": "\"$HOME/.dotfiles/karabiner/chrome-goto.sh\" 'github.com/pulls' 'https://github.com/pulls/review-requested'" }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "4", "modifiers": { "mandatory": ["option"] } },
+                "to": [{ "shell_command": "\"$HOME/.dotfiles/karabiner/chrome-goto.sh\" 'mail.google.com' 'https://mail.google.com/mail/u/0/#inbox'" }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "5", "modifiers": { "mandatory": ["option"] } },
+                "to": [{ "shell_command": "\"$HOME/.dotfiles/karabiner/chrome-goto.sh\" 'calendar.google.com' 'https://calendar.google.com/calendar/u/0/r/week'" }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "6", "modifiers": { "mandatory": ["option"] } },
+                "to": [{ "shell_command": "\"$HOME/.dotfiles/karabiner/chrome-goto.sh\" 'analytics.langdock.dev' 'https://analytics.langdock.dev'" }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "7", "modifiers": { "mandatory": ["option"] } },
+                "to": [{ "shell_command": "\"$HOME/.dotfiles/karabiner/chrome-goto.sh\" 'portal.azure.com' 'https://portal.azure.com/#home'" }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "8", "modifiers": { "mandatory": ["option"] } },
+                "to": [{ "shell_command": "\"$HOME/.dotfiles/karabiner/chrome-goto.sh\" 'dashboard/ubc-xiw-em4' 'https://app.datadoghq.eu/dashboard/ubc-xiw-em4/engineering-metrics?fromUser=false&from_ts=1780987598611&to_ts=1780991198611&live=true'" }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "9", "modifiers": { "mandatory": ["option"] } },
+                "to": [{ "shell_command": "\"$HOME/.dotfiles/karabiner/chrome-goto.sh\" 'incident.io' 'https://app.incident.io/'" }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "0", "modifiers": { "mandatory": ["option"] } },
+                "to": [{ "shell_command": "\"$HOME/.dotfiles/karabiner/chrome-goto.sh\" 'sentry.io' 'https://langdock-eu.sentry.io/issues'" }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Chrome: Option+Shift+C copy current tab URL",
+            "manipulators": [
+              {
+                "from": { "key_code": "c", "modifiers": { "mandatory": ["option", "shift"] } },
+                "to": [{ "shell_command": "osascript -e 'tell application \"Google Chrome\" to set u to URL of active tab of front window' -e 'set the clipboard to u'" }],
+                "conditions": [{ "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "App Launchers (Ctrl + key)",
             "manipulators": [
               {
@@ -19,7 +95,7 @@
                   "key_code": "p",
                   "modifiers": { "mandatory": ["control"] }
                 },
-                "to": [{ "shell_command": "open -a 'Arc'" }],
+                "to": [{ "shell_command": "open -a 'Google Chrome'" }],
                 "type": "basic"
               },
               {

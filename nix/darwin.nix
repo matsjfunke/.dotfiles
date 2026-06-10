@@ -61,6 +61,26 @@
 
     # No widgets on desktop
     WindowManager.StandardHideWidgets = true;
+
+    # Google Chrome — declarative bookmarks bar via managed policy.
+    # Appears as a read-only "Langdock" folder on the bookmark bar.
+    # Mirrors the Option+0..9 focus-if-open shortcuts in karabiner.json.
+    CustomUserPreferences."com.google.Chrome" = {
+      BookmarkBarEnabled = true;
+      ManagedBookmarks = [
+        { toplevel_name = "Langdock"; }
+        { name = "Prod"; url = "https://app.langdock.com/chat"; }
+        { name = "Local"; url = "http://localhost:3000/chat"; }
+        { name = "PRs"; url = "https://github.com/pulls/review-requested"; }
+        { name = "Gmail"; url = "https://mail.google.com/mail/u/0/#inbox"; }
+        { name = "Cal"; url = "https://calendar.google.com/calendar/u/0/r/week"; }
+        { name = "Analytics"; url = "https://analytics.langdock.dev"; }
+        { name = "Azure"; url = "https://portal.azure.com/#home"; }
+        { name = "Datadog"; url = "https://app.datadoghq.eu/dashboard/ubc-xiw-em4/engineering-metrics?fromUser=false&from_ts=1780987598611&to_ts=1780991198611&live=true"; }
+        { name = "incident.io"; url = "https://app.incident.io/"; }
+        { name = "Sentry"; url = "https://langdock-eu.sentry.io/issues"; }
+      ];
+    };
   };
 
   # Sleep settings
@@ -101,6 +121,7 @@
       "docker-desktop"
       "emdash"
       "ghostty"
+      "google-chrome"
       "karabiner-elements"
       "linear"
       "bruno"
