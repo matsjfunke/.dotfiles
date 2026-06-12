@@ -20,6 +20,13 @@ in
   # Let Home Manager manage itself
   programs.home-manager.enable = true;
 
+  # direnv with nix-direnv (caches flake dev shells, e.g. langdock's .envrc)
+  # Shell hook is added manually in zsh/.zshrc since zsh isn't home-manager-managed.
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   # Symlinks (all relative to ~)
   home.file = {
     ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zsh/.zshrc";

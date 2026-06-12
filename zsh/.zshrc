@@ -156,6 +156,9 @@ alias nixagents="launchctl list | grep matsjfunke" # list all nix launchd agents
 alias gcb="git rev-parse --abbrev-ref HEAD | pbcopy && echo \"Copied: $(git rev-parse --abbrev-ref HEAD)\""
 alias wakey="caffeinate -dimsu"
 
+# direnv (auto-loads .envrc / nix flake dev shells)
+command -v direnv >/dev/null && eval "$(direnv hook zsh)"
+
 # Plugins 
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
