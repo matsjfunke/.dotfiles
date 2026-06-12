@@ -61,7 +61,6 @@ in
     tree
     wget
     doppler
-    gemini-cli
     ollama
     openvpn
     postgresql_15
@@ -81,6 +80,12 @@ in
     uv
     go-task
     check
+
+    # AI coding agents (from llm-agents.nix overlay, rebuilt daily)
+    llm-agents.claude-code
+    llm-agents.codex
+    llm-agents.gemini-cli
+    llm-agents.opencode
   ];
 
   # Launchd agents (macOS cron jobs)

@@ -11,9 +11,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # 130+ AI coding-agent CLIs, rebuilt daily (claude-code, codex, opencode, ...)
+    llm-agents.url = "github:numtide/llm-agents.nix";
   };
 
-  outputs = { nixpkgs, nix-darwin, home-manager, ... }:
+  # Pull prebuilt agent binaries from numtide's cache instead of compiling them
+  nixConfig = {
+    extra-substituters = [ "https://cache.numtide.com" ];
+    extra-trusted-public-keys = [ "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=" ];
+  };
+
+  outputs = { nixpkgs, nix-darwin, home-manager, llm-agents, ... }:
     let
       system = "aarch64-darwin";
       mkDarwinConfig = username: nix-darwin.lib.darwinSystem {
@@ -30,9 +38,12 @@
             home-manager.users.${username} = import ./home.nix;
             home-manager.extraSpecialArgs = { inherit username; };
 
+            nixpkgs.overlays = [ llm-agents.overlays.default ];
+
             nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
               "ngrok"
               "terraform"
+              "claude-code"
             ];
           }
         ];
