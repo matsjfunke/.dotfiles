@@ -98,5 +98,8 @@
   "editor.guides.bracketPairs": "active",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "accessibility.signalOptions.volume": 0,
-  "window.autoDetectColorScheme": false
+  "window.autoDetectColorScheme": false,
+  "datadog.connection.notification.suppressSignInNotification": true,"remote.SSH.remotePlatform": {
+    "coder-vscode.remotedev.i.langdock.dev--mats--mats-test.main": "linux"
+  },"remote.SSH.connectTimeout": 1800,"remote.SSH.reconnectionGraceTime": 28800,"remote.SSH.serverShutdownTimeout": 28800,"remote.SSH.maxReconnectionAttempts": null
 }

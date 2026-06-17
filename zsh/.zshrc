@@ -149,8 +149,8 @@ alias tree="tree -I 'env|venv|node_modules|__pycache__'"
 alias ngrok-3333="ngrok http --domain=optimal-meet-scorpion.ngrok-free.app 3333"
 alias dp="doppler secrets set --config dev_mats"
 alias dps="doppler secrets --config dev_mats"
-alias bnix="sudo darwin-rebuild build --accept-flake-config --flake ~/.dotfiles/nix#\$USER"
-alias rbnix="sudo darwin-rebuild switch --accept-flake-config --flake ~/.dotfiles/nix#\$USER"
+alias bnix="sudo darwin-rebuild build --option accept-flake-config true --flake ~/.dotfiles/nix#\$USER"
+alias rbnix="sudo darwin-rebuild switch --option accept-flake-config true --flake ~/.dotfiles/nix#\$USER"
 alias whosonwifi='nmap -sn $(ipconfig getifaddr en0 | sed "s/[0-9]*$/0\/24/")'
 alias nixagents="launchctl list | grep matsjfunke" # list all nix launchd agents
 alias gcb="git rev-parse --abbrev-ref HEAD | pbcopy && echo \"Copied: $(git rev-parse --abbrev-ref HEAD)\""
@@ -162,6 +162,7 @@ command -v direnv >/dev/null && eval "$(direnv hook zsh)"
 # Plugins 
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+export NODE_EXTRA_CA_CERTS="$HOME/.aikido-root-ca.pem"
 # aikido-endpoint-cert-config-start
 # Allow Node.js tooling to trust the SafeChain MITM CA while preserving public roots.
 export NODE_EXTRA_CA_CERTS="/Library/Application Support/AikidoSecurity/EndpointProtection/run/endpoint-protection-combined-ca.pem"
@@ -176,4 +177,3 @@ export UV_SYSTEM_CERTS=true
 # aikido-endpoint-pip-uv-legacy-start
 export UV_NATIVE_TLS=true
 # aikido-endpoint-pip-uv-legacy-end
-export NODE_EXTRA_CA_CERTS="$HOME/.aikido-root-ca.pem"

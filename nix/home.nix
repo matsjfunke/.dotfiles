@@ -9,6 +9,13 @@
 let
   homeDir = "/Users/${username}";
   dotfilesDir = "${homeDir}/.dotfiles";
+  # Symlink a dotfile into place. force = true overwrites whatever is there
+  # without creating a *.backup (the repo is the source of truth), which avoids
+  # backup-collision failures on activation.
+  mkLink = path: {
+    source = config.lib.file.mkOutOfStoreSymlink path;
+    force = true;
+  };
 in
 {
   home.username = username;
@@ -29,20 +36,17 @@ in
 
   # Symlinks (all relative to ~)
   home.file = {
-    ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zsh/.zshrc";
-    ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/git/.gitconfig";
-    ".ssh/config".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/ssh/config";
-    ".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/wezterm/.wezterm.lua";
-    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/nvim";
-    ".config/htop/htoprc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/htop/htoprc";
-    ".config/karabiner/karabiner.json".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/karabiner/karabiner.json";
-    "Library/Application Support/com.mitchellh.ghostty/config".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/ghostty/config";
-    ".cursor/skills".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/skills";
-    ".claude/skills".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/skills";
+    ".zshrc" = mkLink "${dotfilesDir}/zsh/.zshrc";
+    ".gitconfig" = mkLink "${dotfilesDir}/git/.gitconfig";
+    ".ssh/config" = mkLink "${dotfilesDir}/ssh/config";
+    ".wezterm.lua" = mkLink "${dotfilesDir}/wezterm/.wezterm.lua";
+    ".config/nvim" = mkLink "${dotfilesDir}/nvim";
+    ".config/htop/htoprc" = mkLink "${dotfilesDir}/htop/htoprc";
+    ".config/karabiner/karabiner.json" = mkLink "${dotfilesDir}/karabiner/karabiner.json";
+    "Library/Application Support/com.mitchellh.ghostty/config" =
+      mkLink "${dotfilesDir}/ghostty/config";
+    ".cursor/skills" = mkLink "${dotfilesDir}/skills";
+    ".claude/skills" = mkLink "${dotfilesDir}/skills";
   };
 
   # CLI tools (cross-platform, managed by Nix)
@@ -66,6 +70,8 @@ in
     postgresql_15
     python312
     tree-sitter
+    nixd # Nix LSP (used by Cursor's nix-ide extension)
+    bazel-buildtools # buildifier/buildozer (used by Cursor's Bazel extension)
     nodejs_22
     ngrok
     terraform
