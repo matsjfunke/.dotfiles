@@ -82,7 +82,7 @@ in
     check
 
     # AI coding agents (from llm-agents.nix overlay, rebuilt daily)
-    llm-agents.claude-code
+    (lib.hiPrio llm-agents.claude-code) # hiPrio: overlay also adds bin/claude to nodejs
     llm-agents.codex
     llm-agents.gemini-cli
     llm-agents.opencode
