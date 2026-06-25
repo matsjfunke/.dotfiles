@@ -7,6 +7,19 @@
   # Let Determinate manage Nix (not nix-darwin)
   nix.enable = false;
 
+  # Determinate owns /etc/nix/nix.conf and includes this custom file.
+  # Keep cache trust here so flake nixConfig does not get ignored for admin users.
+  system.activationScripts.determinateNixCustomConfig.text = ''
+    install -d -m 0755 /etc/nix
+    install -m 0644 ${pkgs.writeText "nix.custom.conf" ''
+      # Managed by nix-darwin via ~/.dotfiles/nix/darwin.nix.
+      trusted-users = root @admin
+      extra-substituters = https://cache.numtide.com
+      extra-trusted-substituters = https://cache.numtide.com
+      extra-trusted-public-keys = niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=
+    ''} /etc/nix/nix.custom.conf
+  '';
+
   # macOS System Settings
   system.defaults = {
     # Dock
