@@ -71,8 +71,6 @@ in
       pip = "pip3.13";
       icloud = "cd ~/Library/Mobile\\ Documents/com~apple~CloudDocs/";
       ngrok-3333 = "ngrok http --domain=optimal-meet-scorpion.ngrok-free.app 3333";
-      dp = "doppler secrets set --config dev_mats";
-      dps = "doppler secrets --config dev_mats";
       bnix = "sudo darwin-rebuild build --option accept-flake-config true --flake ~/.dotfiles/nix#$USER";
       rbnix = "sudo darwin-rebuild switch --option accept-flake-config true --flake ~/.dotfiles/nix#$USER";
       whosonwifi = ''nmap -sn $(ipconfig getifaddr en0 | sed "s/[0-9]*$/0\/24/")'';
@@ -122,6 +120,7 @@ in
     "Library/Application Support/com.mitchellh.ghostty/config" = mkLink "${dotfilesDir}/ghostty/config";
     ".cursor/skills" = mkLink "${dotfilesDir}/skills";
     ".claude/skills" = mkLink "${dotfilesDir}/skills";
+    ".codex/skills" = mkLink "${dotfilesDir}/skills";
   };
 
   # CLI tools (cross-platform, managed by Nix)
