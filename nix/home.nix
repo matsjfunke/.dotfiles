@@ -28,23 +28,98 @@ in
   programs.home-manager.enable = true;
 
   # direnv with nix-direnv (caches flake dev shells, e.g. langdock's .envrc)
-  # Shell hook is added manually in zsh/.zshrc since zsh isn't home-manager-managed.
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
   };
 
+  programs.zsh = {
+    enable = true;
+
+    plugins = [
+      {
+        name = "zsh-syntax-highlighting";
+        src = pkgs.zsh-syntax-highlighting;
+        file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
+      }
+      {
+        name = "zsh-autosuggestions";
+        src = pkgs.zsh-autosuggestions;
+        file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
+      }
+    ];
+
+    history = {
+      size = 100000;
+      save = 10000;
+      path = "${config.home.homeDirectory}/.cache/zsh/history";
+    };
+
+    shellAliases = {
+      search = "google_search";
+      dc = "docker-compose";
+      python = "python3.13";
+      rm = "rm -i";
+      mv = "mv -i";
+      tree = "tree -I 'env|venv|node_modules|__pycache__'";
+      ta = "tmux attach-session -t ";
+      tn = "tmux new-session -s ";
+      tk = "tmux kill-session -t ";
+      cp = "cp -r";
+      scp = "scp -r";
+      vim = "nvim";
+      pip = "pip3.13";
+      icloud = "cd ~/Library/Mobile\\ Documents/com~apple~CloudDocs/";
+      ngrok-3333 = "ngrok http --domain=optimal-meet-scorpion.ngrok-free.app 3333";
+      dp = "doppler secrets set --config dev_mats";
+      dps = "doppler secrets --config dev_mats";
+      bnix = "sudo darwin-rebuild build --option accept-flake-config true --flake ~/.dotfiles/nix#$USER";
+      rbnix = "sudo darwin-rebuild switch --option accept-flake-config true --flake ~/.dotfiles/nix#$USER";
+      whosonwifi = ''nmap -sn $(ipconfig getifaddr en0 | sed "s/[0-9]*$/0\/24/")'';
+      nixagents = "launchctl list | grep matsjfunke";
+      gcb = ''git rev-parse --abbrev-ref HEAD | pbcopy && echo "Copied: $(git rev-parse --abbrev-ref HEAD)"'';
+      wakey = "caffeinate -dimsu";
+    };
+
+    initContent = ''
+      [ -d /nix ] && export PATH="/run/current-system/sw/bin:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
+      [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+      setopt PROMPT_SUBST
+      source "$HOME/.config/zsh/functions.zsh"
+
+      PS1='%F{014}   %~ %(!.#.) $(git_prompt_info)%f%k'
+    '';
+  };
+
+  home.sessionPath = [
+    "$HOME/.local/bin"
+    "/opt/homebrew/bin"
+  ];
+
+  home.sessionVariables = {
+    LC_ALL = "en_US.UTF-8";
+    LANG = "en_US.UTF-8";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    NODE_EXTRA_CA_CERTS = "/Library/Application Support/AikidoSecurity/EndpointProtection/run/endpoint-protection-combined-ca.pem";
+    PIP_CERT = "/Library/Application Support/AikidoSecurity/EndpointProtection/run/endpoint-protection-pip-combined-ca.pem";
+    REQUESTS_CA_BUNDLE = "/Library/Application Support/AikidoSecurity/EndpointProtection/run/endpoint-protection-pip-combined-ca.pem";
+    POETRY_CERTIFICATES_PYPI_CERT = "/Library/Application Support/AikidoSecurity/EndpointProtection/run/endpoint-protection-pip-combined-ca.pem";
+    UV_SYSTEM_CERTS = "true";
+    UV_NATIVE_TLS = "true";
+  };
+
   # Symlinks (all relative to ~)
   home.file = {
-    ".zshrc" = mkLink "${dotfilesDir}/zsh/.zshrc";
+    ".config/zsh/functions.zsh" = mkLink "${dotfilesDir}/zsh/functions.zsh";
     ".gitconfig" = mkLink "${dotfilesDir}/git/.gitconfig";
     ".ssh/config" = mkLink "${dotfilesDir}/ssh/config";
     ".wezterm.lua" = mkLink "${dotfilesDir}/wezterm/.wezterm.lua";
     ".config/nvim" = mkLink "${dotfilesDir}/nvim";
     ".config/htop/htoprc" = mkLink "${dotfilesDir}/htop/htoprc";
     ".config/karabiner/karabiner.json" = mkLink "${dotfilesDir}/karabiner/karabiner.json";
-    "Library/Application Support/com.mitchellh.ghostty/config" =
-      mkLink "${dotfilesDir}/ghostty/config";
+    "Library/Application Support/com.mitchellh.ghostty/config" = mkLink "${dotfilesDir}/ghostty/config";
     ".cursor/skills" = mkLink "${dotfilesDir}/skills";
     ".claude/skills" = mkLink "${dotfilesDir}/skills";
   };
@@ -107,15 +182,15 @@ in
 
   # Login items (apps that open on startup)
   home.activation.loginItems = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    run /usr/bin/osascript <<'EOF'
-      tell application "System Events"
-        delete every login item
-        set appPaths to {"/Applications/Ghostty.app", "/Applications/Raycast.app", "/Applications/Docker.app", "/Applications/Karabiner-Elements.app", "/Applications/Reminders.app", "/Applications/1Password.app", "/Applications/Granola.app"}
-        repeat with appPath in appPaths
-          make login item at end with properties {path:appPath, hidden:false}
-        end repeat
-      end tell
-EOF
+        run /usr/bin/osascript <<'EOF'
+          tell application "System Events"
+            delete every login item
+            set appPaths to {"/Applications/Ghostty.app", "/Applications/Raycast.app", "/Applications/Docker.app", "/Applications/Karabiner-Elements.app", "/Applications/Reminders.app", "/Applications/1Password.app", "/Applications/Granola.app"}
+            repeat with appPath in appPaths
+              make login item at end with properties {path:appPath, hidden:false}
+            end repeat
+          end tell
+    EOF
   '';
 
   launchd.agents.dotfiles-sync = {
