@@ -4,3 +4,17 @@ Host github.com
   AddKeysToAgent yes
   UseKeychain yes
   IdentityFile ~/.ssh/github
+# BEGIN ONO ono-cursor-9621ebee
+Host ono-cursor-9621ebee
+  User ono
+  ProxyCommand "/Users/matsjfunke/Library/Application Support/Cursor/User/globalStorage/ono.ono-remote-dev/bin/ono-ssh-proxy" --token-file "/Users/matsjfunke/.ono/tunnel-cursor-9621ebee.json"
+  IdentityFile "/Users/matsjfunke/.ono/id_ed25519_ono_cursor_9621ebee"
+  StrictHostKeyChecking yes
+  UserKnownHostsFile "/Users/matsjfunke/.ono/known_hosts"
+  ExitOnForwardFailure yes
+  TCPKeepAlive yes
+  ServerAliveInterval 30
+  ServerAliveCountMax 3
+  ControlMaster no
+  ControlPersist no
+# END ONO ono-cursor-9621ebee

@@ -49,23 +49,23 @@
     { "before": ["leader", "p"], "commands": ["editor.action.formatDocument"] }, // Format file with <Space>p
     {
       "before": ["leader", "f", "f"],
-      "commands": ["workbench.action.quickOpen"] // Find filename with <Space>ff
+      "commands": ["workbench.action.quickOpen"], // Find filename with <Space>ff
     },
     {
       "before": ["leader", "f", "g"],
-      "commands": ["workbench.action.findInFiles"] // Find in file with <Space>fg
+      "commands": ["workbench.action.findInFiles"], // Find in file with <Space>fg
     },
     {
       "before": ["s", "d"],
-      "commands": ["editor.action.showDefinitionPreviewHover"] // Show definition preview with sd
+      "commands": ["editor.action.showDefinitionPreviewHover"], // Show definition preview with sd
     },
     {
       "before": ["g", "d"],
-      "commands": ["editor.action.revealDefinition"] // Go to definition with gd
+      "commands": ["editor.action.revealDefinition"], // Go to definition with gd
     },
     { "before": ["g", "b"], "commands": ["gitlens.toggleFileBlame"] }, // Toggle git blame
     { "before": ["t", "t"], "commands": ["typescript.restartTsServer"] }, // Restart TS server with tt
-    { "before": ["f", "f"], "commands": ["editor.action.formatDocument"] } // format file with ff
+    { "before": ["f", "f"], "commands": ["editor.action.formatDocument"] }, // format file with ff
   ],
   "vim.visualModeKeyBindings": [
     // Stay in visual mode while indenting
@@ -73,27 +73,27 @@
     { "before": [">"], "commands": ["editor.action.indentLines"] },
     // Move selected lines while staying in visual mode
     { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
-    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] }
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
   ],
   "vim.insertModeKeyBindings": [
     {
       "before": ["k", "j"],
-      "after": ["<Esc>"]
-    }
+      "after": ["<Esc>"],
+    },
   ],
   // Formatting
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "go.toolsManagement.autoUpdate": true,
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "workbench.editor.enablePreview": false,
   "audioCues.enabled": "off",
@@ -102,7 +102,13 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "accessibility.signalOptions.volume": 0,
   "window.autoDetectColorScheme": false,
-  "datadog.connection.notification.suppressSignInNotification": true,"remote.SSH.remotePlatform": {
-    "coder-vscode.remotedev.i.langdock.dev--mats--mats-test.main": "linux"
-  },"remote.SSH.connectTimeout": 1800,"remote.SSH.reconnectionGraceTime": 28800,"remote.SSH.serverShutdownTimeout": 28800,"remote.SSH.maxReconnectionAttempts": null
+  "datadog.connection.notification.suppressSignInNotification": true,
+  "remote.SSH.remotePlatform": {
+    "coder-vscode.remotedev.i.langdock.dev--mats--mats-test.main": "linux",
+    "ono-cursor-9621ebee": "linux"
+  },
+  "remote.SSH.connectTimeout": 1800,
+  "remote.SSH.reconnectionGraceTime": 28800,
+  "remote.SSH.serverShutdownTimeout": 28800,
+  "remote.SSH.maxReconnectionAttempts": null,
 }
