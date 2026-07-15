@@ -32,6 +32,7 @@
 - `lg`: compact, colorful log view with graph
 - `uncommit`: undo last commit (soft reset)
 - `lfg "message"`: add, commit, and push in one command
+- `yolo "message"`: add, commit, and push in one command, skipping all hooks (`--no-verify`)
 - `pr "title"`: create GitHub PR with title (requires GitHub CLI)
 
 **Steps to set up commit signing**:

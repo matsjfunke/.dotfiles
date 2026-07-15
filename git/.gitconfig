@@ -59,6 +59,7 @@
     uncommit = reset --soft HEAD~1 # Undo last commit but keep changes staged
     rh = reset --hard # reset head hard to commit discarding all changes
     lfg = "!f() { git add . && git commit -m \"$1\" ${2:+-m \"$2\"} && git push; }; f" # LETS F*CKING GO: Add, commit, push in one command
+    yolo = "!f() { git add . && git commit --no-verify -m \"$1\" ${2:+-m \"$2\"} && git push --no-verify; }; f" # YOLO: Add, commit, push skipping all hooks
     # Keeping up with remote / Rebasing utils
     pfl = push --force-with-lease
     p = pull # Simple pull shorthand (will rebase by default)
@@ -76,4 +77,4 @@
     smsync = submodule update --init --recursive # Sync submodule content after pulling main repo changes
     smlatest = submodule update --init --recursive --remote # Update submodule(s) to latest remote commit (optionally pass a path)
 [http]
-	sslCAInfo = /Library/Application Support/AikidoSecurity/EndpointProtection/run/endpoint-protection-git-combined-ca.pem
+	sslCAInfo = /Library/Application Support/AikidoSecurity/EndpointProtection/run/endpoint-protection-openssl-combined-ca.pem
