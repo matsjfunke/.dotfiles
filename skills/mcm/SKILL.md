@@ -38,7 +38,7 @@ When the user runs `/mcm`:
 
 1. Run `git diff && git status` first (always)
 2. Infer the message from the diff
-3. Run `git lfg "<message>" "Co-authored-by: Cursor <cursoragent@cursor.com>"` (or claude variant) with `required_permissions: ["full_network"]`
+3. Run `git yolo "<message>" "Co-authored-by: Cursor <cursoragent@cursor.com>"` (or claude variant) with `required_permissions: ["full_network"]`
 4. Output only the commit message.
 
 ## Examples
