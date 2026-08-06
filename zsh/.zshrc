@@ -128,6 +128,10 @@ wtd() {
   fi
 }
 
+port() {
+  lsof -nP -iTCP:"$1" -sTCP:LISTEN
+}
+
 # Aliases 
 alias search="google_search"
 alias dc="docker-compose"
