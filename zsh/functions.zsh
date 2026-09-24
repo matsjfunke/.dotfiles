@@ -49,6 +49,17 @@ wta() {
   fi
 }
 
+# Switches every git repo in a directory to main and pulls latest; defaults to ~/langdock
+pullall() {
+  local base="${1:-$HOME/langdock}"
+  for dir in "$base"/*/; do
+    if [ -d "$dir/.git" ]; then
+      echo "\n==> $(basename "$dir")"
+      git -C "$dir" checkout main 2>&1 && git -C "$dir" pull
+    fi
+  done
+}
+
 wtd() {
   if [ -z "$1" ]; then
     branch_name=$(basename "$(pwd)")
