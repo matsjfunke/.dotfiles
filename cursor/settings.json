@@ -106,9 +106,8 @@
   "datadog.connection.notification.suppressSignInNotification": true,
   "remote.SSH.remotePlatform": {
     "coder-vscode.remotedev.i.langdock.dev--mats--mats-test.main": "linux",
-    "ono-cursor-0e7d8be9": "linux",
-    "ono-cursor-6320a717": "linux",
-    "ono-cursor-b87a2ec8": "linux"
+    "ono-cursor-2bd64cf8": "linux",
+    "ono-cursor-4402bde3": "linux",
   },
   "remote.SSH.defaultExtensions": [
     "anysphere.cursorpyright",
@@ -145,17 +144,19 @@
     "3000": {
       "label": "web-app",
       "onAutoForward": "silent",
-      "requireLocalPort": true
+      "requireLocalPort": true,
     },
     "10350": {
       "label": "tilt",
       "onAutoForward": "silent",
-      "requireLocalPort": true
+      "requireLocalPort": true,
     },
     "5432": {
       "label": "postgres",
       "onAutoForward": "silent",
-      "requireLocalPort": true
-    }
+      "requireLocalPort": true,
+    },
   },
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "cursor.composer.shouldChimeAfterChatFinishes": true,
 }
