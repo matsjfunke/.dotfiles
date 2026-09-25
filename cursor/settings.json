@@ -86,11 +86,41 @@
   // Formatting
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "never",
+      "source.sortImports": "never",
+    },
   },
   "go.toolsManagement.autoUpdate": true,
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "never",
+      "source.sortImports": "never",
+    },
   },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma",
+  },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.formatDocument": "always",
+    },
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+  },
+  "files.associations": {
+    "*.hcl": "terraform",
+    "*.tf": "terraform",
+    "*.tfvars": "terraform-vars",
+  },
+  "typescript.enablePromptUseWorkspaceTsdk": true,
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
@@ -106,8 +136,7 @@
   "datadog.connection.notification.suppressSignInNotification": true,
   "remote.SSH.remotePlatform": {
     "coder-vscode.remotedev.i.langdock.dev--mats--mats-test.main": "linux",
-    "ono-cursor-2bd64cf8": "linux",
-    "ono-cursor-4402bde3": "linux",
+    "ono-cursor-6107e3ef": "linux"
   },
   "remote.SSH.defaultExtensions": [
     "anysphere.cursorpyright",
