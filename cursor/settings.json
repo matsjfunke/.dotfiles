@@ -134,10 +134,6 @@
   "accessibility.signalOptions.volume": 0,
   "window.autoDetectColorScheme": false,
   "datadog.connection.notification.suppressSignInNotification": true,
-  "remote.SSH.remotePlatform": {
-    "coder-vscode.remotedev.i.langdock.dev--mats--mats-test.main": "linux",
-    "ono-cursor-6107e3ef": "linux"
-  },
   "remote.SSH.defaultExtensions": [
     "anysphere.cursorpyright",
     "bazelbuild.vscode-bazel",
