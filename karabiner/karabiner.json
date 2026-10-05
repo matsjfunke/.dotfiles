@@ -143,7 +143,7 @@
                   "key_code": "e",
                   "modifiers": { "mandatory": ["control"] }
                 },
-                "to": [{ "shell_command": "open -a 'emdash'" }],
+                "to": [{ "shell_command": "open -a 'ChatGPT'" }],
                 "type": "basic"
               },
               {
