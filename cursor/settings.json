@@ -163,14 +163,8 @@
   "remote.SSH.reconnectionGraceTime": 28800,
   "remote.SSH.serverShutdownTimeout": 28800,
   "remote.SSH.maxReconnectionAttempts": null,
-  "remote.autoForwardPortsSource": "hybrid",
-  "remote.autoForwardPorts": true,
+  "remote.autoForwardPorts": false,
   "remote.portsAttributes": {
-    "3000": {
-      "label": "web-app",
-      "onAutoForward": "silent",
-      "requireLocalPort": true,
-    },
     "10350": {
       "label": "tilt",
       "onAutoForward": "silent",
