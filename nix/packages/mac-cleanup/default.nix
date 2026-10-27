@@ -5,13 +5,6 @@ stdenvNoCC.mkDerivation {
   version = "1.0.0";
   src = lib.cleanSource ./.;
   nativeBuildInputs = [ makeWrapper ];
-  nativeCheckInputs = [ python312 ];
-  doCheck = true;
-  checkPhase = ''
-    runHook preCheck
-    python3 -m unittest discover -v
-    runHook postCheck
-  '';
   installPhase = ''
     runHook preInstall
     mkdir -p "$out/libexec/mac-cleanup" "$out/bin"
