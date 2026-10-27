@@ -9,6 +9,7 @@
 let
   homeDir = "/Users/${username}";
   dotfilesDir = "${homeDir}/.dotfiles";
+  cleanupPackage = pkgs.callPackage ./packages/mac-cleanup { };
   # Symlink a dotfile into place. force = true overwrites whatever is there
   # without creating a *.backup (the repo is the source of truth), which avoids
   # backup-collision failures on activation.
@@ -125,6 +126,7 @@ in
 
   # CLI tools (cross-platform, managed by Nix)
   home.packages = with pkgs; [
+    cleanupPackage
     bat
     coreutils
     delta # git-delta
@@ -218,13 +220,12 @@ in
     enable = true;
     config = {
       Label = "com.matsjfunke.cleanup";
-      # Delete files & dirs in Downloads, Desktop & Trash older than 60 minutes
+      # Fixed policies for personal files, abandoned Bazel outputs and Homebrew.
       ProgramArguments = [
-        "/bin/sh"
-        "-c"
-        "find ~/Downloads ~/Desktop ~/.Trash -mindepth 1 -mmin +60 -exec rm -rf {} + 2>/dev/null || true"
+        "${cleanupPackage}/bin/mac-cleanup"
+        "--apply"
       ];
-      # Daily at 2:00 AM, and on login/wake
+      # Daily at 2:00 AM (missed runs execute after wake), and when loaded.
       StartCalendarInterval = [
         {
           Hour = 2;
