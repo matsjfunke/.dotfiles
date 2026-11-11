@@ -162,6 +162,7 @@ in
     uv
     go-task
     check
+    yubikey-manager # ykman (YubiKey for Teleport hardware-key login)
 
     # AI coding agents (from llm-agents.nix overlay, rebuilt daily)
     (lib.hiPrio llm-agents.claude-code) # hiPrio: overlay also adds bin/claude to nodejs

@@ -124,13 +124,13 @@
     brews = [
       "openssl@3"
       "databricks/tap/databricks"
+      "bazelisk" # also provides `bazel`; Langdock repo + Cursor's Bazel extension
     ];
 
     casks = [
       "1password"
       "alchemy"
       "beekeeper-studio"
-      "cursor"
       "docker-desktop"
       "ghostty"
       "google-chrome"
@@ -139,6 +139,7 @@
       "raycast"
       "slack"
       "spotify"
+      "teleport-suite" # official signed pkg: tsh, tctl, tbot, teleport (keep major in sync with teleport.langdock.dev, currently 18)
     ];
   };
 
