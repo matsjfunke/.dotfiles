@@ -151,6 +151,7 @@ alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 # alias ls="colorls" # requires sudo gem install colorls 
 alias tree="tree -I 'env|venv|node_modules|__pycache__'"
 alias ngrok-3333="ngrok http --domain=optimal-meet-scorpion.ngrok-free.app 3333"
+alias ngrok-3000="ngrok http --domain=optimal-meet-scorpion.ngrok-free.app 3000"
 alias dp="doppler secrets set --config dev_mats"
 alias dps="doppler secrets --config dev_mats"
 alias bnix="sudo darwin-rebuild build --option accept-flake-config true --flake ~/.dotfiles/nix#\$USER"
@@ -181,3 +182,4 @@ export UV_SYSTEM_CERTS=true
 # aikido-endpoint-pip-uv-legacy-start
 export UV_NATIVE_TLS=true
 # aikido-endpoint-pip-uv-legacy-end
+setopt interactivecomments
