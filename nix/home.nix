@@ -117,6 +117,9 @@ in
     ".wezterm.lua" = mkLink "${dotfilesDir}/wezterm/.wezterm.lua";
     ".config/nvim" = mkLink "${dotfilesDir}/nvim";
     ".config/htop/htoprc" = mkLink "${dotfilesDir}/htop/htoprc";
+    # Docker Engine config (builder GC caps build cache at 20GB). Out-of-store
+    # link, so edits in Docker Desktop > Settings > Docker Engine land in the repo.
+    ".docker/daemon.json" = mkLink "${dotfilesDir}/docker/daemon.json";
     ".config/karabiner/karabiner.json" = mkLink "${dotfilesDir}/karabiner/karabiner.json";
     "Library/Application Support/com.mitchellh.ghostty/config" = mkLink "${dotfilesDir}/ghostty/config";
     ".cursor/skills" = mkLink "${dotfilesDir}/skills";
@@ -221,7 +224,8 @@ in
     enable = true;
     config = {
       Label = "com.matsjfunke.cleanup";
-      # Fixed policies for personal files, abandoned Bazel outputs and Homebrew.
+      # Fixed policies for personal files, abandoned Bazel outputs, Homebrew and
+      # Langdock dev caches (prompt dumps daily; Docker/pnpm/devserver monthly).
       ProgramArguments = [
         "${cleanupPackage}/bin/mac-cleanup"
         "--apply"

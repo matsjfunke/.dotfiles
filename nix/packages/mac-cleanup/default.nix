@@ -14,7 +14,7 @@ stdenvNoCC.mkDerivation {
     runHook postInstall
   '';
   meta = {
-    description = "Deterministic personal-file, abandoned Bazel output, and Homebrew cleanup";
+    description = "Deterministic personal-file, abandoned Bazel output, Homebrew and Langdock dev-cache cleanup";
     platforms = lib.platforms.darwin;
     mainProgram = "mac-cleanup";
   };
