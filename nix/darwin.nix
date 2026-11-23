@@ -136,7 +136,6 @@
       "google-chrome"
       "karabiner-elements"
       "linear"
-      "raycast"
       "slack"
       "spotify"
       "teleport-suite" # official signed pkg: tsh, tctl, tbot, teleport (keep major in sync with teleport.langdock.dev, currently 18)
