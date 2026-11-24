@@ -14,7 +14,7 @@
 - [Neovim](#neovim)
   - [NVIM README](nvim/README.md)
 - [Zsh](#zsh)
-- [Karabiner (i'm a qwertz normie)](#karabiner-elements)
+- [skhd (hotkeys)](#skhd)
 
 [Manual dotfile setup without Nix](#manual-dotfile-setup-without-nix)
 [Use configs Individually](#use-configs-individually)
@@ -68,23 +68,22 @@ Details on plugins and keybindings in [Neovim README](nvim/README.md)
 - loads plugins syntax highlighting and autosuggestions
 - aliases and functions for convenience
 
-## Karabiner-Elements
+## skhd
+
+Lightweight hotkey daemon (`services.skhd` in `nix/darwin.nix`), config in [`skhd/skhdrc`](skhd/skhdrc):
+
+- Ctrl+key app launchers (Ctrl+P Chrome, Ctrl+T Ghostty, Ctrl+Ü Langdock, ...)
+- Chrome only: Option+1..0 focus-or-open tabs via [`skhd/chrome-goto.sh`](skhd/chrome-goto.sh), Option+Shift+C copies the tab URL
+
+Caps Lock to Esc is a native macOS remap (`system.keyboard` in `nix/darwin.nix`).
 
 if not using nix than install and symlink config:
 
 ```zsh
-# install with homebrew:
-brew install --cask karabiner-elements
-# Create Symbolic Links
-ln -s ~/.dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+brew install koekeishiya/formulae/skhd
+ln -s ~/.dotfiles/skhd/skhdrc ~/.config/skhd/skhdrc
+skhd --start-service
 ```
-
-- Custom key mappings for a German keyboard layout:
-  - Option+P to [ (left bracket)
-  - Option+Ü to ] (right bracket)
-  - Option+Ö to { (left curly brace)
-  - Option+Ä to } (right curly brace)
-  - Caps lock to ESC
 
 ## Manual dotfile setup without Nix
 
@@ -119,7 +118,7 @@ ln -s ~/.dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
    ln -s ~/.dotfiles/nvim ~/.config/nvim
    ln -s ~/.dotfiles/htop/htoprc ~/.config/htop/htoprc
    ln -s ~/.dotfiles/wezterm/.wezterm.lua ~/.wezterm.lua
-   ln -s ~/.dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+   ln -s ~/.dotfiles/skhd/skhdrc ~/.config/skhd/skhdrc
    ```
 
 5. **Source Configuration Files**

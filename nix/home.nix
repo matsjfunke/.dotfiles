@@ -120,7 +120,7 @@ in
     # Docker Engine config (builder GC caps build cache at 20GB). Out-of-store
     # link, so edits in Docker Desktop > Settings > Docker Engine land in the repo.
     ".docker/daemon.json" = mkLink "${dotfilesDir}/docker/daemon.json";
-    ".config/karabiner/karabiner.json" = mkLink "${dotfilesDir}/karabiner/karabiner.json";
+    ".config/skhd/skhdrc" = mkLink "${dotfilesDir}/skhd/skhdrc";
     "Library/Application Support/com.mitchellh.ghostty/config" = mkLink "${dotfilesDir}/ghostty/config";
     ".cursor/skills" = mkLink "${dotfilesDir}/skills";
     ".claude/skills" = mkLink "${dotfilesDir}/skills";
@@ -190,7 +190,7 @@ in
         run /usr/bin/osascript <<'EOF'
           tell application "System Events"
             delete every login item
-            set appPaths to {"/Applications/Ghostty.app", "/Applications/Docker.app", "/Applications/Karabiner-Elements.app", "/Applications/Reminders.app", "/Applications/1Password.app", "/Applications/Granola.app"}
+            set appPaths to {"/Applications/Ghostty.app", "/Applications/Docker.app", "/Applications/Reminders.app", "/Applications/1Password.app", "/Applications/Granola.app"}
             repeat with appPath in appPaths
               make login item at end with properties {path:appPath, hidden:false}
             end repeat

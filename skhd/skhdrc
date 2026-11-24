@@ -1,0 +1,54 @@
+# skhd hotkeys (linked to ~/.config/skhd/skhdrc by nix/home.nix; reloads on save)
+# Syntax: <mods> - <key> : <command>   https://github.com/koekeishiya/skhd
+
+# --- App launchers (Ctrl + key) ---
+# 0x21 = Ü key on the German layout
+ctrl - 0x21 : open -a 'Langdock'
+ctrl - p    : open -a 'Google Chrome'
+ctrl - o    : open -a 'Linear'
+ctrl - i    : open -a 'Slack'
+ctrl - u    : open -a 'Beekeeper Studio'
+ctrl - t    : open -a 'Ghostty'
+ctrl - r    : open -a 'Reminders'
+ctrl - e    : open -a 'ChatGPT'
+ctrl - q    : open -a 'Postman'
+ctrl - n    : open -a 'Notes'
+ctrl - 1    : open -a '1Password'
+
+# --- Chrome only: focus tab if open, else open it ---
+# Outside Chrome the keys pass through (Option+5/6/8/9 still type [ ] { }).
+alt - 1 [
+  "google chrome" : ~/.dotfiles/skhd/chrome-goto.sh 'app.langdock.com/chat' 'https://app.langdock.com/chat'
+]
+alt - 2 [
+  "google chrome" : ~/.dotfiles/skhd/chrome-goto.sh 'localhost:3000' 'http://localhost:3000/chat'
+]
+alt - 3 [
+  "google chrome" : ~/.dotfiles/skhd/chrome-goto.sh 'github.com/pulls' 'https://github.com/pulls/review-requested'
+]
+alt - 4 [
+  "google chrome" : ~/.dotfiles/skhd/chrome-goto.sh 'mail.google.com' 'https://mail.google.com/mail/u/0/#inbox'
+]
+alt - 5 [
+  "google chrome" : ~/.dotfiles/skhd/chrome-goto.sh 'calendar.google.com' 'https://calendar.google.com/calendar/u/0/r/week'
+]
+alt - 6 [
+  "google chrome" : ~/.dotfiles/skhd/chrome-goto.sh 'analytics.langdock.dev' 'https://analytics.langdock.dev'
+]
+alt - 7 [
+  "google chrome" : ~/.dotfiles/skhd/chrome-goto.sh 'portal.azure.com' 'https://portal.azure.com/#home'
+]
+alt - 8 [
+  "google chrome" : ~/.dotfiles/skhd/chrome-goto.sh 'dashboard/ubc-xiw-em4' 'https://app.datadoghq.eu/dashboard/ubc-xiw-em4/engineering-metrics?fromUser=false&from_ts=1780987598611&to_ts=1780991198611&live=true'
+]
+alt - 9 [
+  "google chrome" : ~/.dotfiles/skhd/chrome-goto.sh 'incident.io' 'https://app.incident.io/'
+]
+alt - 0 [
+  "google chrome" : ~/.dotfiles/skhd/chrome-goto.sh 'sentry.io' 'https://langdock-eu.sentry.io/issues'
+]
+
+# Option+Shift+C: copy current Chrome tab URL
+shift + alt - c [
+  "google chrome" : osascript -e 'tell application "Google Chrome" to set u to URL of active tab of front window' -e 'set the clipboard to u'
+]
