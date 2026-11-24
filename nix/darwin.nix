@@ -77,7 +77,7 @@
 
     # Google Chrome — declarative bookmarks bar via managed policy.
     # Appears as a read-only "Langdock" folder on the bookmark bar.
-    # Mirrors the Option+0..9 focus-if-open shortcuts in karabiner.json.
+    # Mirrors the Option+0..9 focus-if-open shortcuts in skhd/skhdrc.
     CustomUserPreferences."com.google.Chrome" = {
       BookmarkBarEnabled = true;
       ManagedBookmarks = [
@@ -99,6 +99,16 @@
   # Sleep settings
   power.sleep.computer = 10;  # Minutes until computer sleeps
   power.sleep.display = 3;    # Minutes until display sleeps
+
+  # Keyboard remaps via macOS hidutil (Caps Lock -> Esc)
+  system.keyboard = {
+    enableKeyMapping = true;
+    remapCapsLockToEscape = true;
+  };
+
+  # Hotkey daemon for app launchers and Chrome shortcuts.
+  # No skhdConfig: skhd reads ~/.config/skhd/skhdrc (linked from skhd/skhdrc in home.nix).
+  services.skhd.enable = true;
 
   # Allow Touch ID for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
@@ -134,7 +144,6 @@
       "docker-desktop"
       "ghostty"
       "google-chrome"
-      "karabiner-elements"
       "linear"
       "slack"
       "spotify"

@@ -6,7 +6,7 @@
 #   match-substring : substring tested against each tab's URL (e.g. "github.com/pulls")
 #   url-to-open     : full URL to open when no tab matches (defaults to match-substring)
 #
-# Triggered from karabiner.json (Option+1..9, scoped to Chrome).
+# Triggered from skhd/skhdrc (Option+1..0, scoped to Chrome).
 
 set -euo pipefail
 
