@@ -144,6 +144,7 @@
       "docker-desktop"
       "ghostty"
       "google-chrome"
+      "langdock"
       "linear"
       "slack"
       "spotify"
