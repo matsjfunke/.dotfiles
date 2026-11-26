@@ -38,7 +38,7 @@
             home-manager.users.${username} = import ./home.nix;
             home-manager.extraSpecialArgs = { inherit username; };
 
-            nixpkgs.overlays = [ llm-agents.overlays.default ];
+            nixpkgs.overlays = [ (final: prev: { llm-agents = llm-agents.packages.${system}; }) ];
 
             nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
               "ngrok"

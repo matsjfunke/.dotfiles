@@ -122,7 +122,7 @@
   homebrew = {
     enable = true;
     onActivation = {
-      cleanup = "none"; # TODO: restore "zap" once nix-darwin PR #1774 merges (new Homebrew needs --force-cleanup; not in mainline yet)
+      cleanup = "zap";
       autoUpdate = true;
       upgrade = true;
     };
@@ -139,7 +139,6 @@
 
     casks = [
       "1password"
-      "alchemy"
       "beekeeper-studio"
       "docker-desktop"
       "ghostty"
